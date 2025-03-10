@@ -1,0 +1,22 @@
+---
+import Header from '@/components/page/Header.astro';
+import BentoBox from '@/components/layout/BentoBox.astro';
+import { education } from "@/config";
+---
+
+<section id="education">
+  <Header title="Education" subtitle="My academic journey." />
+  <div class="space-y-6">
+    {education.map(item => (
+      <BentoBox className="mb-6" padding={true}>
+        <div>
+          <h3 class="text-xl font-semibold">
+            {item.degree} at {item.institution}
+          </h3>
+          <p class="text-sm text-muted-foreground">{item.date}</p>
+          <p class="mt-2">{item.description}</p>
+        </div>
+      </BentoBox>
+    ))}
+  </div>
+</section>

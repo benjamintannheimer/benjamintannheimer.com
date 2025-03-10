@@ -40,3 +40,47 @@ Feel free to explore the various components and enhance your application with Sh
 ## License
 
 Licensed under the [MIT License](LICENSE).
+
+
+---
+
+# Navbar
+
+- Home
+- About
+- Projects
+- Blog
+- Links
+
+# Home
+
+- Experience
+- Education
+- Certifications
+- Projects
+- Posts
+- Connect
+
+# About
+
+- Biography
+- Resume CV / Download
+- Values and Mission
+- Beyond Software
+- What I use
+  - Web Dev Setup
+  - Hardware
+  - Software
+- Skills and Technologies
+
+# Projects
+
+- top 3
+- others
+
+# Blog
+
+- top 3
+- others
+
+# Footer

@@ -1,0 +1,22 @@
+---
+import Header from '@/components/page/Header.astro';
+import BentoBox from '@/components/layout/BentoBox.astro';
+import { experiences } from '@/config';
+
+---
+
+<Header title="Experience" subtitle="Where I have worked." />
+
+<section id="experience">
+    {experiences.map(exp => (
+        <BentoBox className="mb-6" padding={true}>
+            <div class="mb-6 last:mb-0">
+                <h3 class="text-xl font-semibold">
+                    {exp.title} at {exp.company}
+                </h3>
+                <p class="text-sm text-muted-foreground">{exp.date}</p>
+                <p class="mt-2">{exp.description}</p>
+            </div>
+        </BentoBox>
+    ))}
+</section>

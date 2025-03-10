@@ -1,0 +1,34 @@
+---
+import BentoBox from '@/components/layout/BentoBox.astro';
+import { certifications } from '@/config';
+import Header from '@/components/page/Header.astro';
+---
+<Header title="Certifications" subtitle="Check out my certifications." />
+<section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mt-8">
+  {certifications.map((cert) => {
+    const formattedDate = cert.date.toLocaleDateString('en-US', { month: 'numeric', year: 'numeric' });
+
+    return (
+      <BentoBox className="p-0 overflow-hidden rounded-xl group relative aspect-square" padding={false}>
+        <a 
+          href={cert.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="block w-full h-full"
+        >
+          <img 
+            src={cert.image} 
+            alt={cert.title} 
+            loading="lazy" 
+            class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105" 
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <h2 class="text-xl font-semibold text-white">{cert.title}</h2>
+            <p class="text-sm text-white">{formattedDate}</p>
+          </div>
+        </a>
+      </BentoBox>
+    );
+  })}
+</section>

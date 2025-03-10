@@ -3,6 +3,7 @@ import PageLayout from "@/layouts/PageLayout.astro";
 import { buttonVariants } from "@/components/ui/button";
 import { position, aboutPageContent } from "@/config";
 import BentoBox from "@/components/layout/BentoBox.astro";
+import Connect from "@/components/content/Connect.astro";
 
 const { seo, page } = aboutPageContent;
 ---
@@ -32,21 +33,6 @@ const { seo, page } = aboutPageContent;
 
   </div>
 
-  <!-- Let's Connect Section -->
-  <BentoBox className="text-center max-w-2xl mx-auto mt-12 p-8">
-    <h2 class="text-2xl font-bold mb-4">Let's Connect</h2>
-    <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
-      I'm always open to discussing new ideas, collaborating on projects, or just chatting about the latest in tech.
-      Feel free to connect with me on GitHub, Twitter, or LinkedIn!
-    </p>
-    <a 
-      href="https://github.com/maxmustermann"
-      target="_blank"
-      rel="noreferrer"
-      class={buttonVariants({ variant: 'default' })}
-    >
-      Visit My GitHub
-    </a>
-  </BentoBox>
+  <Connect />
 
 </PageLayout>

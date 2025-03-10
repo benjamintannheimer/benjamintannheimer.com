@@ -22,9 +22,32 @@
     image: string;
   }
 
-  export type Certificate = BaseLink & {
-    name: string;
+  export type Certification = BaseLink & {
     image: string;
+    date: Date;
+    expireDate?: Date;
+  }
+
+  export type Experience = {
+    title: string;
+    company: string;
+    date: string;
+    description: string;
+  }
+
+  export type Education = {
+    degree: string;
+    institution: string;
+    date: string;
+    description: string;
+  }
+
+  export type Testimonial = {
+    name: string;
+    jobTitle: string;
+    text: string;
+    avatar: string;
+    links: BaseLink[];
   }
 
   export type Identity = {

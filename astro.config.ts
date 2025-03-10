@@ -15,7 +15,7 @@ export default defineConfig({
   },
   site: process.env.CI
     ? "https://benjamint.io"
-    : "http://localhost:4321",
+    : "http://localhost:3000",
   integrations: [react(), mdx(), sitemap({
       filter: (page) => !page.includes("hidden__"),
   }), pagefind(), alpine()],

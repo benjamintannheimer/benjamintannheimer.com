@@ -37,14 +37,15 @@ const { Content } = await post.render();
     image: post.data.image.url,
   }}
   page={{
-    title: post.data.title
+    title: post.data.title,
+    subtitle: post.data.description,
   }}
   backlink={{
     title: "Back to posts",
     url: "/blog"
   }}
 >
-  <article class="prose prose-invert mb-24 text-gray-300">
+  <article class="prose prose-invert mb-24 text-foreground">
     <Content
 				components={{
 					h1: TypographyH1,
@@ -69,7 +70,7 @@ const { Content } = await post.render();
         class="w-16 h-16 rounded-full object-cover border-2"
       />
       <div class="flex flex-col">
-        <p class="text-lg font-semibold text-white">{post.data.author?.name || identity.name}</p>
+        <p class="text-lg font-semibold text-foreground">{post.data.author?.name || identity.name}</p>
         <p class="text-xs text-gray-500 mt-1">
           Published on {new Date(post.data.pubDate).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}
         </p>
