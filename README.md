@@ -57,8 +57,7 @@ Licensed under the [MIT License](LICENSE).
 - Experience
 - Education
 - Certifications
-- Projects
-- Posts
+- Testimonials
 - Connect
 
 # About
@@ -84,3 +83,8 @@ Licensed under the [MIT License](LICENSE).
 - others
 
 # Footer
+
+
+# Run docker
+
+docker-compose up --build

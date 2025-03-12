@@ -1,18 +1,25 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
-import { buttonVariants } from "@/components/ui/button";
-import { position, aboutPageContent } from "@/config";
-import BentoBox from "@/components/layout/BentoBox.astro";
+import { aboutPageContent } from "@/config";
 import Connect from "@/components/content/Connect.astro";
+import Setup from "@/components/content/Setup.astro";
+import Biography from "@/components/content/Biography.astro";
 
 const { seo, page } = aboutPageContent;
 ---
 
-<PageLayout seo={seo} page={page}>
+<PageLayout 
+  seo={seo} 
+  page={page}
+>
+  <Biography/>
+  <!-- <Principles /> -->
+  <!-- <Beyond /> -->
+  <Setup />
   <!-- About Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    
-    <BentoBox>
+
+  <!-- <div>
+    <BentoBox className="mb-6">
       <h2 class="text-2xl font-bold mb-4">My Background</h2>
       <p class="text-gray-600 dark:text-gray-300">
         With a background in full-stack development, I specialize in building scalable web applications using 
@@ -31,7 +38,7 @@ const { seo, page } = aboutPageContent;
       </ul>
     </BentoBox>
 
-  </div>
+  </div> -->
 
   <Connect />
 

@@ -13,6 +13,7 @@ import type {
     ProjectPageContent,
     BlogPageContent,
     CreditsPageContent,
+    PrivacyPageContent,
     ContactPageContent,
     NotFoundPageContent,
     HomePageContent,
@@ -75,7 +76,7 @@ import type {
   export const certifications: Certification[] = [
     {
       image: "/redhat.png",
-      date: new Date("11.2.2024"),
+      date: new Date("07.03.2025"),
       expireDate: new Date("12.2.2024"),
       title: "RHCSA",
       url: "https://example.com",
@@ -349,6 +350,19 @@ import type {
     page: {
       title: "Credits",
       subtitle: "Some cool people I got inspiration from"
+    },
+  };
+
+  // Privacy (/privacy)
+  export const privacyPageContent: PrivacyPageContent = {
+    seo: {
+      title: makeSEOTitle("Privacy", identity.name),
+      description: "Privacy",
+      image: identity.avatar,
+    },
+    page: {
+      title: "Privacy",
+      subtitle: "Privacy policy"
     },
   };
 

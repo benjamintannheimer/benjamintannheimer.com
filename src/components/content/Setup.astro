@@ -1,0 +1,76 @@
+---
+import BentoBox from '@/components/layout/BentoBox.astro';
+import Header from '@/components/page/Header.astro';
+
+const categories = [
+  {
+    name: "Web Development Setup",
+    items: [
+      { name: "Mac Setup for Web Development", url: "https://affiliate.example.com/mac-setup" }
+    ]
+  },
+  {
+    name: "Hardware",
+    items: [
+      {
+        name: "MacBook Pro 2021",
+        details: "14-inch, Apple M1 Pro with 10‑Core CPU, 16‑Core GPU and 16‑Core Neural Engine, 32 GB RAM, 512 GB SSD, QWERTY = English (International)",
+        url: "https://affiliate.example.com/macbookpro2021"
+      },
+      {
+        name: "Backup MacBook Pro 2015",
+        details: "13-inch, 2.7 GHz Intel Core i5, 16 GB RAM, 256 GB SSD, QWERTY = English (International)",
+        url: "https://affiliate.example.com/macbookpro2015"
+      },
+      { name: "Mobile Laptop Stand", url: "https://affiliate.example.com/mobile-laptop-stand" },
+      { name: "Trackpad and Keyboard", url: "https://affiliate.example.com/trackpad-keyboard" },
+      { name: "Headphones: Sennheiser Pro Audio Professional HD 25", url: "https://affiliate.example.com/sennheiser-hd25" },
+      { name: "Display: Dell UltraSharp 32 4k UHD", url: "https://affiliate.example.com/dell-ultrasharp-32" },
+      { name: "Microphone: Blue Yeti USB Microphone", url: "https://affiliate.example.com/blue-yeti" }
+    ]
+  },
+  {
+    name: "Software",
+    items: [
+      { name: "Fastmail for E-Mail", url: "https://affiliate.example.com/fastmail" },
+      { name: "Digital Ocean for Hosting", url: "https://affiliate.example.com/digitalocean" }
+    ]
+  }
+];
+---
+
+<Header title="What I Use" subtitle="The following is a selection of my tools that I use for my professional work."></Header>
+<section id="setup" class="py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    {categories.map(category => (
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold mb-4">{category.name}</h3>
+        <BentoBox className="p-6">
+          <ul class="space-y-3">
+            {category.items.map(item => (
+              <li>
+                <div class="flex flex-col">
+                  {item.url ? (
+                    <a 
+                      href={item.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      class="font-bold text-lg text-primary hover:underline"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <span class="font-bold text-lg">{item.name}</span>
+                  )}
+                  {item.details && (
+                    <span class="text-sm text-muted-foreground">{item.details}</span>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </BentoBox>
+      </div>
+    ))}
+  </div>
+</section>

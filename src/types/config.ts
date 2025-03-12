@@ -116,6 +116,8 @@
   export type BlogPageContent = BasePage & {};
 
   export type CreditsPageContent = BasePage & {};
+  
+  export type PrivacyPageContent = BasePage & {};
 
   export type ContactPageContent = BasePage & {};
 
