@@ -9,6 +9,8 @@ import type {
     Experience,
     Education,
     Testimonial,
+    Hardware,
+    Software,
     AboutPageContent,
     ProjectPageContent,
     BlogPageContent,
@@ -18,7 +20,8 @@ import type {
     NotFoundPageContent,
     HomePageContent,
   } from "./types/config";
-  
+
+  // Common ===========================================================================
   export const position: Position = {
     companyLogo: "/companylogo.jpg",
     companyName: "Swiss Armed Forces",
@@ -38,31 +41,49 @@ import type {
     country: "Switzerland",
   };
 
+  export const navBarLinks: NavBarLink[] = [
+    {
+      title: "Home",
+      url: "/",
+    },
+    {
+      title: "About",
+      url: "/about",
+    },
+    {
+      title: "Blog",
+      url: "/blog",
+    },
+    {
+      title: "Projects",
+      url: "/projects",
+    },
+  ];
+  
+  export const socialLinks: SocialLink[] = [
+    {
+      title: "GitHub",
+      url: "https://github.com/bt18b",
+      icon: "Github",
+      external: true,
+    },
+    {
+      title: "Mail",
+      url: "mailto:benjamintannheimer [at] protonmail [dot] com",
+      icon: "Mail",
+      external: true,
+    },
+    {
+      title: "LinkedIn",
+      url: "https://example.com",
+      icon: "Linkedin",
+      external: true,
+    },
+  ];
+  
+  // ComponentContent =================================================================
+
   export const technologies: Technology[] = [
-    {
-      name: "JavaScript",
-      image: "/JavaScript-logo.png",
-    },
-    {
-      name: "JavaScript",
-      image: "/JavaScript-logo.png",
-    },
-    {
-      name: "JavaScript",
-      image: "/JavaScript-logo.png",
-    },
-    {
-      name: "JavaScript",
-      image: "/JavaScript-logo.png",
-    },
-    {
-      name: "JavaScript",
-      image: "/JavaScript-logo.png",
-    },
-    {
-      name: "JavaScript",
-      image: "/JavaScript-logo.png",
-    },
     {
       name: "JavaScript",
       image: "/JavaScript-logo.png",
@@ -72,6 +93,77 @@ import type {
       image: "/JavaScript-logo.png",
     }
   ];
+
+  export const hardware: Hardware[] = [
+    {
+      title: "MacBook Pro 2021",
+      url: "https://affiliate.example.com/macbookpro2021",
+      external: true,
+      usage: "Work",
+      details: "14-inch, Apple M1 Pro with 10‑Core CPU, 16‑Core GPU and 16‑Core Neural Engine, 32 GB RAM, 512 GB SSD, QWERTY = English (International)"
+    },
+    {
+      title: "Backup MacBook Pro 2015",
+      url: "https://affiliate.example.com/macbookpro2015",
+      external: true,
+      usage: "Backup",
+      details: "13-inch, 2.7 GHz Intel Core i5, 16 GB RAM, 256 GB SSD, QWERTY = English (International)"
+    },
+    {
+      title: "Mobile Laptop Stand",
+      url: "https://affiliate.example.com/mobile-laptop-stand",
+      external: true,
+      usage: "Ergonomics",
+      details: ""
+    },
+    {
+      title: "Trackpad and Keyboard",
+      url: "https://affiliate.example.com/trackpad-keyboard",
+      external: true,
+      usage: "Input",
+      details: ""
+    },
+    {
+      title: "Headphones: Sennheiser Pro Audio Professional HD 25",
+      url: "https://affiliate.example.com/sennheiser-hd25",
+      external: true,
+      usage: "Audio",
+      details: ""
+    },
+    {
+      title: "Display: Dell UltraSharp 32 4k UHD",
+      url: "https://affiliate.example.com/dell-ultrasharp-32",
+      external: true,
+      usage: "Display",
+      details: ""
+    },
+    {
+      title: "Microphone: Blue Yeti USB Microphone",
+      url: "https://affiliate.example.com/blue-yeti",
+      external: true,
+      usage: "Recording",
+      details: ""
+    }
+  ];
+  
+  export const software: Software[] = [
+    {
+      title: "Fastmail",
+      url: "https://affiliate.example.com/fastmail",
+      external: true,
+      pricing: "PAID",
+      usage: "Email",
+      // details: ""
+    },
+    {
+      title: "Digital Ocean",
+      url: "https://affiliate.example.com/digitalocean",
+      external: true,
+      pricing: "PAID",
+      usage: "Hosting",
+      // details: ""
+    }
+  ];  
 
   export const certifications: Certification[] = [
     {
@@ -92,36 +184,68 @@ import type {
     {
       image: "/itil-v4-foundation.png",
       title: "ITIL4F",
+      plannedDate: new Date("10.10.2025"),
       url: "https://example.com",
       external: true,
     }
   ]
-  
+
   export const experiences: Experience[] = [
     {
       title: "ICT System Specialist I",
+      url: "https://example.com",
+      external: true,
+      logo: "/no-image.jpg",
       company: "Swiss Armed Forces",
       date: "Nov 2024 - Nov 2025",
-      description: "Developing intuitive UIs with Astro and Tailwind CSS while collaborating on design and user experience improvements."
+      description: "Developing intuitive UIs with Astro and Tailwind CSS while collaborating on design and user experience improvements.",
+      technologies: [
+        { name: "RedHat" },
+        { name: "Cisco" },
+        { name: "Django" },
+      ]
     },
     {
       title: "Frontend Developer",
+      url: "https://example.com",
+      external: true,
+      logo: "/no-image.jpg",
       company: "Intersim AG",
       date: "Aug 2024 - Oct 2024",
-      description: "Developing and delivering business web applications within the TYPO3 circle."
+      description: "Developing and delivering business web applications within the TYPO3 circle.",
+      technologies: [
+        { name: "Typo3" },
+        { name: "PHP" },
+        { name: "Docker" },
+      ]
     },
     {
       title: "Apprentice Application Developer Way-Up EFZ",
+      url: "https://example.com",
+      external: true,
+      logo: "/no-image.jpg",
       company: "Swisscom (Switzerland) AG",
       date: "Aug 2022 - Jul 2024",
-      description: "During my apprenticeship at Swisscom as an Application Developer through the Way-Up EFZ program, I gained hands-on experience in designing, developing, and testing software solutions. I worked collaboratively with cross-functional teams on diverse projects, which helped me hone my skills in modern programming languages and agile methodologies. This role provided a strong foundation in real-world application development and an in-depth understanding of the telecommunications industry."
+      description: "During my apprenticeship at Swisscom as an Application Developer through the Way-Up EFZ program, I gained hands-on experience in designing, developing, and testing software solutions. I worked collaboratively with cross-functional teams on diverse projects, which helped me hone my skills in modern programming languages and agile methodologies. This role provided a strong foundation in real-world application development and an in-depth understanding of the telecommunications industry.",
+      technologies: [
+        { name: "Next.js" },
+        { name: "Nest.js" },
+        { name: "FastAPI" },
+        { name: "MariaDB" },
+        { name: "MongoDB" },
+        { name: "MinIO" },
+        { name: "Docker" },
+      ]
     }
   ];
 
   export const education: Education[] = [
     {
+      title: "Gymnasium Neufeld",
+      url: "https://example.com",
+      external: true,
+      logo: "/no-image.jpg",
       degree: "Swiss Matura",
-      institution: "Gymnasium Neufeld",
       date: "2018 - 2022",
       description: "Completed the Swiss Matura, a secondary school diploma that provides a broad academic foundation and prepares students for higher education in Switzerland."
     }    
@@ -170,50 +294,8 @@ import type {
     }
   ];
 
-  export const navBarLinks: NavBarLink[] = [
-    {
-      title: "Home",
-      url: "/",
-    },
-    {
-      title: "About",
-      url: "/about",
-    },
-    {
-      title: "Blog",
-      url: "/blog",
-    },
-    {
-      title: "Archive",
-      url: "/archive",
-    },
-    {
-      title: "Projects",
-      url: "/projects",
-    },
-  ];
-  
-  export const socialLinks: SocialLink[] = [
-    {
-      title: "GitHub",
-      url: "https://github.com/bt18b",
-      icon: "Github",
-      external: true,
-    },
-    {
-      title: "Mail",
-      url: "mailto:benjamintannheimer [at] protonmail [dot] com",
-      icon: "Mail",
-      external: true,
-    },
-    {
-      title: "LinkedIn",
-      url: "https://example.com",
-      icon: "Linkedin",
-      external: true,
-    },
-  ];
-  
+  // PageContent =====================================================================
+
   // Home (/)
   export const homePageContent: HomePageContent = {
     seo: {
@@ -251,7 +333,7 @@ import type {
       image: identity.avatar,
     },
     page: {
-      title: "Hi, I'm Benjamin Tannheimer 👋",
+      title: "About me",
       subtitle: "Passionate software developer with a love for web technologies, open-source projects, and automation."
     },
     about: {

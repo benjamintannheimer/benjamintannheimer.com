@@ -71,6 +71,7 @@ Licensed under the [MIT License](LICENSE).
   - Hardware
   - Software
 - Skills and Technologies
+- Connect
 
 # Projects
 

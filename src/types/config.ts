@@ -1,4 +1,4 @@
-  export type BaseLink = {
+export type BaseLink = {
     title: string;
     url: string;
     external?: boolean;
@@ -19,7 +19,18 @@
 
   export type Technology = {
     name: string;
-    image: string;
+    image?: string;
+  }
+
+  export type Software = BaseLink & {
+    pricing: string;
+    usage?: string;
+    details?: string;
+  }
+
+  export type Hardware = BaseLink & {
+    usage?: string;
+    details?: string;
   }
 
   export type Certification =
@@ -33,16 +44,17 @@
       expireDate?: Date;
     });
 
-  export type Experience = {
-    title: string;
+  export type Experience = BaseLink & {
+    logo: string;
     company: string;
     date: string;
     description: string;
+    technologies: Technology[];
   }
 
-  export type Education = {
+  export type Education = BaseLink & {
     degree: string;
-    institution: string;
+    logo: string;
     date: string;
     description: string;
   }

@@ -7,14 +7,19 @@ import { education } from "@/config";
 <section id="education">
   <Header title="Education" subtitle="My academic journey." />
   <div class="space-y-6">
-    {education.map(item => (
+    {education.map(edu => (
       <BentoBox className="mb-6" padding={true}>
         <div>
-          <h3 class="text-xl font-semibold">
-            {item.degree} at {item.institution}
-          </h3>
-          <p class="text-sm text-muted-foreground">{item.date}</p>
-          <p class="mt-2">{item.description}</p>
+          <div class="flex items-center space-x-4">
+            <a href={edu.url} target="_blank" rel="noopener noreferrer">
+              <img src={edu.logo} alt={`${edu.logo} Logo`} class="w-10 h-10 rounded-lg" />
+            </a>
+            <div>
+                <h3 class="text-xl font-semibold">{edu.degree} at {edu.title}</h3>
+                <p class="text-sm text-muted-foreground">{edu.date}</p>
+            </div>
+          </div>
+          <p class="mt-2">{edu.description}</p>
         </div>
       </BentoBox>
     ))}

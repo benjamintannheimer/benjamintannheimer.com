@@ -11,11 +11,17 @@ import { experiences } from '@/config';
     {experiences.map(exp => (
         <BentoBox className="mb-6" padding={true}>
             <div class="mb-6 last:mb-0">
-                <h3 class="text-xl font-semibold">
-                    {exp.title} at {exp.company}
-                </h3>
-                <p class="text-sm text-muted-foreground">{exp.date}</p>
+                <div class="flex items-center space-x-4">
+                    <a href={exp.url} target="_blank" rel="noopener noreferrer">
+                        <img src={exp.logo} alt={`${exp.company} Logo`} class="w-10 h-10 rounded-lg" />
+                    </a>
+                    <div>
+                        <h3 class="text-xl font-semibold">{exp.title} at {exp.company}</h3>
+                        <p class="text-sm text-muted-foreground">{exp.date}</p>
+                    </div>
+                </div>
                 <p class="mt-2">{exp.description}</p>
+                <p class="mt-2 text-gray-500">{exp.technologies.map((tech) => `#${tech.name} `)}</p>
             </div>
         </BentoBox>
     ))}

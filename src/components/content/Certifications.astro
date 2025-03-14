@@ -8,12 +8,11 @@ import Header from '@/components/page/Header.astro';
 
 <section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mt-8">
   {certifications.map((cert) => {
-    // Determine if the certification is planned or obtained
     const isPlanned = "plannedDate" in cert || !("date" in cert);
     const displayDate = isPlanned
       ? cert.plannedDate
         ? `Planned for ${cert.plannedDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`
-        : "Soon" // Show "Soon" if planned but no plannedDate
+        : "Soon"
       : cert.date?.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
     return (
