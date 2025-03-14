@@ -35,7 +35,7 @@ import type {
   export const identity: Identity = {
     name: "Benjamin Tannheimer",
     avatar: "/avatar.jpg",
-    email: "benjamintannheimer [at] protonmail [dot] com",
+    email: "benjamintannheimer [at] protonmail.com",
     utcDiff: 1,
     countryCode: "CH", // use the two letter iso code
     country: "Switzerland",
@@ -69,7 +69,7 @@ import type {
     },
     {
       title: "Mail",
-      url: "mailto:benjamintannheimer [at] protonmail [dot] com",
+      url: "mailto:benjamintannheimer [at] protonmail.com",
       icon: "Mail",
       external: true,
     },
@@ -162,7 +162,35 @@ import type {
       pricing: "PAID",
       usage: "Hosting",
       // details: ""
-    }
+    },
+    // {
+    //   title: "tmux",
+    //   url: "https://affiliate.example.com/fastmail",
+    //   external: true,
+    //   pricing: "FREE",
+    //   usage: "Terminal"
+    // },
+    // {
+    //   title: "vim",
+    //   url: "https://affiliate.example.com/fastmail",
+    //   external: true,
+    //   pricing: "FREE",
+    //   usage: "Terminal"
+    // },
+    {
+      title: "Termius",
+      url: "https://affiliate.example.com/fastmail",
+      external: true,
+      pricing: "PAID",
+      usage: "SSH Connections"
+    },
+    // {
+    //   title: "",
+    //   url: "https://affiliate.example.com/fastmail",
+    //   external: true,
+    //   pricing: "FREE",
+    //   usage: ""
+    // },
   ];  
 
   export const certifications: Certification[] = [
@@ -334,7 +362,7 @@ import type {
     },
     page: {
       title: "About me",
-      subtitle: "Passionate software developer with a love for web technologies, open-source projects, and automation."
+      subtitle: "Passionate software developer."
     },
     about: {
       description: `

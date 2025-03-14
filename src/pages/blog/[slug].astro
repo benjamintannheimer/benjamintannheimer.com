@@ -1,4 +1,6 @@
 ---
+import { buttonVariants } from "@/components/ui/button";
+import { icons, AlertTriangle } from 'lucide-react';
 import PageLayout from "@/layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
@@ -15,7 +17,7 @@ import {
 } from "@/components/blog/Typography";
 import BlogImage from "@/components/blog/BlogImage.astro";
 import { Link } from "@/components/Link";
-import { identity } from "@/config";
+import { socialLinks, identity } from "@/config";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -47,21 +49,24 @@ const { Content } = await post.render();
 >
   <article class="prose prose-invert mb-24 text-foreground">
     <Content
-				components={{
-					h1: TypographyH1,
-					h2: TypographyH2,
-					h3: TypographyH3,
-					h4: TypographyH4,
-					p: TypographyP,
-					blockquote: TypographyBlockquote,
-					ul: TypographyUL,
-					li: TypographyLI,
-					ol: TypographyOL,
-					a: Link,
-          BlogImage,
-				}}
+      components={{
+        h1: TypographyH1,
+        h2: TypographyH2,
+        h3: TypographyH3,
+        h4: TypographyH4,
+        p: TypographyP,
+        blockquote: TypographyBlockquote,
+        ul: TypographyUL,
+        li: TypographyLI,
+        ol: TypographyOL,
+        a: Link,
+        BlogImage,
+      }}
     />
+    
+    <!-- Author Box -->
     <div class="flex items-center gap-4 mt-8 mb-6 p-4 border rounded-lg">
+      <!-- Author Avatar -->
       <Image
         src={post.data.author?.image.url || identity.avatar}
         alt={post.data.author?.image.alt || identity.name}
@@ -69,12 +74,35 @@ const { Content } = await post.render();
         height={64}
         class="w-16 h-16 rounded-full object-cover border-2"
       />
+
+      <!-- Author Details -->
       <div class="flex flex-col">
         <p class="text-lg font-semibold text-foreground">{post.data.author?.name || identity.name}</p>
         <p class="text-xs text-gray-500 mt-1">
-          Published on {new Date(post.data.pubDate).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}
+          Published on {new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </p>
+        
+        <!-- Social Links - Fixed -->
+        <div class="flex items-center gap-3 mt-2">
+          {post.data.author.socialLinks.map(({ url, icon, title }) => {
+            const LucideIcon = icons[icon as keyof typeof icons] || AlertTriangle;
+            
+            if (!icons[icon as keyof typeof icons]) {
+              console.warn(`⚠️ Icon "${icon}" not found in lucide-react. Using fallback.`);
+            }
+
+            return (
+              <a
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={title}
+                class="text-gray-500 hover:text-primary transition-colors duration-200"
+              >
+                <LucideIcon className="h-5 w-5" />
+              </a>
+            );
+          })}
+        </div>
       </div>
     </div>    
-  </article>
-</PageLayout>
