@@ -76,22 +76,21 @@ import type {
   export const certifications: Certification[] = [
     {
       image: "/redhat.png",
-      date: new Date("07.03.2025"),
-      expireDate: new Date("12.2.2024"),
+      date: new Date("03.07.2025"),
+      expireDate: new Date("3.7.2028"),
       title: "RHCSA",
-      url: "https://example.com",
+      url: "https://www.credly.com/badges/b6e3d75e-cb18-4729-b597-706451da7249/public_url",
       external: true,
     },
     {
       image: "/cisco.jpg",
-      date: new Date("11.2.2024"),
+      plannedDate: new Date("10.10.2025"),
       title: "CCNA",
       url: "https://example.com",
       external: true,
     },
     {
       image: "/itil-v4-foundation.png",
-      date: new Date("11.2.2024"),
       title: "ITIL4F",
       url: "https://example.com",
       external: true,

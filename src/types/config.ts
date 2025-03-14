@@ -22,11 +22,16 @@
     image: string;
   }
 
-  export type Certification = BaseLink & {
-    image: string;
-    date: Date;
-    expireDate?: Date;
-  }
+  export type Certification =
+  | (BaseLink & {
+      image: string;
+      plannedDate?: Date;
+    })
+  | (BaseLink & {
+      image: string;
+      date: Date;
+      expireDate?: Date;
+    });
 
   export type Experience = {
     title: string;
