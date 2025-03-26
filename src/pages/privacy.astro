@@ -5,11 +5,16 @@ import { privacyPageContent } from "@/config";
 const { seo, page } = privacyPageContent;
 ---
 
-<PageLayout
-  seo={seo}
-  page={page}
->
-  <p class="text-muted-foreground max-w-[700px] text-lg">
-    Privacy Page content
-  </p>
+<PageLayout seo={seo} page={page}>
+  <div class="max-w-6xl text-lg space-y-4">
+    <p>
+      Your privacy is important to me. This privacy policy explains how I collect, use, and safeguard your personal information when you visit this website, which serves as my personal portfolio, blog, and development hub.
+    </p>
+    <p>
+      As an individual maintaining this website, I only collect information that you voluntarily provide, such as through contact forms or newsletter sign-ups. I also use analytics tools solely to understand site traffic and improve the overall user experience. Rest assured, your data is never shared with third parties or used for commercial purposes.
+    </p>
+    <p>
+      I am committed to protecting your privacy and have implemented reasonable security measures to keep your information safe. If you have any questions or concerns about this privacy policy or how your data is handled, please feel free to get in touch.
+    </p>
+  </div>
 </PageLayout>
