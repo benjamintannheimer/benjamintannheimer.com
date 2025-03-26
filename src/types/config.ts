@@ -10,10 +10,14 @@ export type BaseLink = {
     icon: string;
   };
   
+  export type Company = {
+    logo: string;
+    name: string;
+    location: string;
+  };
+
   export type Position = BaseLink & {
-    companyLogo: string;
-    companyName: string;
-    companyLocation: string;
+    company: Company;
     jobTitle: string;
   }
 
@@ -31,6 +35,11 @@ export type BaseLink = {
   export type Hardware = BaseLink & {
     usage?: string;
     details?: string;
+  }
+
+  export type Friend = BaseLink & {
+    description: string;
+    image: string;
   }
 
   export type Certification =

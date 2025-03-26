@@ -2,11 +2,12 @@
 interface Props {
   className?: string;
   padding?: boolean;
+  hoverHiglight?: boolean;
 }
 
-const { className = "", padding = true } = Astro.props;
+const { className = "", padding = true, hoverHiglight = false } = Astro.props;
 ---
 
-<div class={`rounded-3xl shadow-sm ${padding && "p-6"} border bg-background ${className}`}>
+<div class={`rounded-3xl shadow-sm ${padding ? "p-6" : ""} border bg-background ${hoverHiglight ? "transition-all duration-300 hover:ring-2 hover:ring-primary" : ""} ${className}`}>
   <slot />
 </div>

@@ -2,9 +2,11 @@ import { makeSEOTitle } from "./lib/utils";
 import type {
     NavBarLink,
     SocialLink,
+    Company,
     Position,
     Identity,
     Technology,
+    Friend,
     Certification,
     Experience,
     Education,
@@ -23,9 +25,11 @@ import type {
 
   // Common ===========================================================================
   export const position: Position = {
-    companyLogo: "/companylogo.jpg",
-    companyName: "Swiss Armed Forces",
-    companyLocation: "Berne, Switzerland",
+    company: {
+      logo: "/companylogo.jpg",
+      name: "Swiss Armed Forces",
+      location: "Berne, Switzerland",
+    },
     jobTitle: "ICT Systemspecialist I",
     title: "Swiss Armed Forces",
     url: "https://www.vtg.admin.ch/en",
@@ -60,6 +64,24 @@ import type {
     },
   ];
   
+  export const friends: Friend[] = [
+    {
+      description: "The web framework for content-driven websites",
+      image: "no-image.jpg",
+      title: "Astro",
+      url: "https://astro.build",
+      external: true,
+    },
+    {
+      description: "Beautifully designed components built using Radix UI and Tailwind CSS",
+      image: "no-image.jpg",
+      title: "ShadCN",
+      url: "https://shadcn.com",
+      external: true,
+    }
+  ];
+  
+
   export const socialLinks: SocialLink[] = [
     {
       title: "GitHub",

@@ -8,7 +8,6 @@ const projects = projectsPageContent.projects;
 
 const { seo, page } = projectsPageContent;
 ---
-
 <PageLayout
   seo={seo}
   page={page}
@@ -19,17 +18,18 @@ const { seo, page } = projectsPageContent;
       <BentoBox 
         className="relative overflow-hidden border aspect-square rounded-lg shadow-md hover:shadow-lg transition duration-300 flex flex-col h-full group" 
         padding={false}
+        hoverHiglight={true}
       >
         <!-- Background Image -->
         <img 
           src={project.image} 
           alt={project.description} 
           loading="lazy" 
-          class="absolute inset-0 object-cover w-full h-full transition-transform aspect-square duration-500 ease-in-out group-hover:scale-55" 
+          class="absolute inset-0 object-cover w-full h-full" 
         />
 
         <!-- Content Overlay -->
-        <a 
+        <a
           href={project.url} 
           aria-label={`Read more about ${project.title}`}
           class="relative z-10 flex flex-col h-full bg-black/50 text-white p-6"
