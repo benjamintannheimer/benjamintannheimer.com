@@ -157,7 +157,9 @@ export type BaseLink = {
     };
   };
   
-  export type PrivacyPageContent = BasePage & {};
+  export type PrivacyPageContent = BasePage & {
+    statement: string;
+  };
 
   export type ContactPageContent = BasePage & {};
 
