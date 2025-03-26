@@ -23,6 +23,7 @@ export type BaseLink = {
 
   export type Technology = {
     name: string;
+    color?: string;
     image?: string;
   }
 
