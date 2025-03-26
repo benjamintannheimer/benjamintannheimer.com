@@ -135,6 +135,12 @@ export type BaseLink = {
     year: string;
     url: string;
   };
+
+  export type Credit = {
+    name: string;
+    role: string;
+    comment?: string;
+  };
   
   export type ProjectPageContent = BasePage & {
     projects: Project[];
@@ -142,7 +148,14 @@ export type BaseLink = {
   
   export type BlogPageContent = BasePage & {};
 
-  export type CreditsPageContent = BasePage & {};
+  export type CreditsPageContent = BasePage & {
+    description: string;
+    creditsList: {
+      intro: string;
+      items: Credit[];
+      thankYou: string;
+    };
+  };
   
   export type PrivacyPageContent = BasePage & {};
 

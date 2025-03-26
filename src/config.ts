@@ -480,9 +480,34 @@ import type {
     },
     page: {
       title: "Credits",
-      subtitle: "Some cool people I got inspiration from"
+      subtitle: "Sources of inspiration for building this blog.",
     },
-  };
+    description: `
+      This website is a personal portfolio, blog, and development hub created and maintained by me. I built it using modern web technologies and a passion for coding.
+    `,
+    creditsList: {
+      intro: `
+        I would like to extend my gratitude to the open-source community and the many talented individuals whose work has inspired and enabled this project. Below are some of the key contributions:
+      `,
+      items: [
+        {
+          name: "Astro",
+          role: "A great web framework for building blogs.",
+        },
+        {
+          name: "Tailwind CSS",
+          role: "Utility-first styling.",
+        },
+        {
+          name: "Open Source Community",
+          role: "Inspiration and support.",
+        },
+      ],
+      thankYou: `
+        Thank you to everyone who has contributed to making this website a reality. Your work and support are truly appreciated.
+      `,
+    },
+  };  
 
   // Privacy (/privacy)
   export const privacyPageContent: PrivacyPageContent = {
