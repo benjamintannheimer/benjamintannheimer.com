@@ -11,8 +11,9 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 if (Astro.props.image === undefined) {
-  Astro.props.image = new URL("no-image.jpg", canonicalURL);
+  Astro.props.image = new URL("placeholder/no-image.jpg", canonicalURL);
 }
+console.log(`${Astro.site}/favicon.svg`)
 
 const { title, description, image } = Astro.props;
 ---

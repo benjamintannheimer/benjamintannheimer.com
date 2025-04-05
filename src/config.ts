@@ -38,7 +38,7 @@ import type {
 
   export const identity: Identity = {
     name: "Benjamin Tannheimer",
-    avatar: "/avatar.jpg",
+    avatar: "/common/avatar.jpg",
     email: "benjamintannheimer [at] protonmail.com",
     utcDiff: 1,
     countryCode: "CH", // use the two letter iso code
@@ -67,14 +67,14 @@ import type {
   export const friends: Friend[] = [
     {
       description: "The web framework for content-driven websites",
-      image: "no-image.jpg",
+      image: "placeholder/no-image.jpg",
       title: "Astro",
       url: "https://astro.build",
       external: true,
     },
     {
       description: "Beautifully designed components built using Radix UI and Tailwind CSS",
-      image: "no-image.jpg",
+      image: "placeholder/no-image.jpg",
       title: "ShadCN",
       url: "https://shadcn.com",
       external: true,
@@ -217,7 +217,7 @@ import type {
 
   export const certifications: Certification[] = [
     {
-      image: "/redhat.png",
+      image: "/certifications/redhat.png",
       date: new Date("03.07.2025"),
       expireDate: new Date("3.7.2028"),
       title: "RHCSA",
@@ -225,14 +225,14 @@ import type {
       external: true,
     },
     {
-      image: "/cisco.jpg",
+      image: "/certifications/cisco.jpg",
       plannedDate: new Date("10.10.2025"),
       title: "CCNA",
       url: "https://example.com",
       external: true,
     },
     {
-      image: "/itil-v4-foundation.png",
+      image: "/certifications/itil-v4-foundation.png",
       title: "ITIL4F",
       plannedDate: new Date("10.10.2025"),
       url: "https://example.com",
@@ -245,7 +245,7 @@ import type {
       title: "ICT System Specialist I",
       url: "https://example.com",
       external: true,
-      logo: "/no-image.jpg",
+      logo: "/placeholder/no-image.jpg",
       company: "Swiss Armed Forces",
       date: "Nov 2024 - Nov 2025",
       description: "Developing intuitive UIs with Astro and Tailwind CSS while collaborating on design and user experience improvements.",
@@ -259,7 +259,7 @@ import type {
       title: "Frontend Developer",
       url: "https://example.com",
       external: true,
-      logo: "/no-image.jpg",
+      logo: "/placeholder/no-image.jpg",
       company: "Intersim AG",
       date: "Aug 2024 - Oct 2024",
       description: "Developing and delivering business web applications within the TYPO3 circle.",
@@ -273,7 +273,7 @@ import type {
       title: "Apprentice Application Developer Way-Up EFZ",
       url: "https://example.com",
       external: true,
-      logo: "/no-image.jpg",
+      logo: "/placeholder/no-image.jpg",
       company: "Swisscom (Switzerland) AG",
       date: "Aug 2022 - Jul 2024",
       description: "During my apprenticeship at Swisscom as an Application Developer through the Way-Up EFZ program, I gained hands-on experience in designing, developing, and testing software solutions. I worked collaboratively with cross-functional teams on diverse projects, which helped me hone my skills in modern programming languages and agile methodologies. This role provided a strong foundation in real-world application development and an in-depth understanding of the telecommunications industry.",
@@ -294,7 +294,7 @@ import type {
       title: "Gymnasium Neufeld",
       url: "https://example.com",
       external: true,
-      logo: "/no-image.jpg",
+      logo: "/placeholder/no-image.jpg",
       degree: "Swiss Matura",
       date: "2018 - 2022",
       description: "Completed the Swiss Matura, a secondary school diploma that provides a broad academic foundation and prepares students for higher education in Switzerland."
@@ -306,7 +306,7 @@ import type {
       name: "Jason Smith",
       jobTitle: "VP of Product Development at Netflix",
       text: "Working with [Name] is amazing, his ability to comprehend and explain complex topics and apply them is fantastic.",
-      avatar: "/avatar.jpg",
+      avatar: "/common/avatar.jpg",
       links: [
         { title: "Website", url: "https://example.com", external: true },
         { title: "LinkedIn", url: "https://linkedin.com/in/jasonsmith", external: true }
@@ -316,7 +316,7 @@ import type {
       name: "Amanda Johnson",
       jobTitle: "CEO at Creative Solutions",
       text: "Collaborating with [Name] was a turning point for our business, bringing innovation and efficiency.",
-      avatar: "/avatar.jpg",
+      avatar: "/common/avatar.jpg",
       links: [
         { title: "Website", url: "https://example.com", external: true },
         { title: "Twitter", url: "https://twitter.com/amandajohnson", external: true }
@@ -326,7 +326,7 @@ import type {
       name: "Michael Lee",
       jobTitle: "CTO at Innovative Tech",
       text: "His technical skills and visionary approach have made him an indispensable asset to our team.",
-      avatar: "/avatar.jpg",
+      avatar: "/common/avatar.jpg",
       links: [
         { title: "LinkedIn", url: "https://linkedin.com/in/michaellee", external: true },
         { title: "Portfolio", url: "https://michaelleeportfolio.com", external: true }
@@ -336,7 +336,7 @@ import type {
       name: "Emily Davis",
       jobTitle: "Marketing Director at Trendsetters Inc.",
       text: "His insights into digital strategy have transformed our campaigns and increased our ROI.",
-      avatar: "/avatar.jpg",
+      avatar: "/common/avatar.jpg",
       links: [
         { title: "Website", url: "https://example.com", external: true },
         { title: "LinkedIn", url: "https://linkedin.com/in/emilydavis", external: true }
@@ -400,7 +400,7 @@ import type {
           title: "Software Developer",
           company: {
             name: "Freelance",
-            image: "/avatar.jpg",
+            image: "/common/avatar.jpg",
             url: "https://github.com/bt18b",
           },
           date: "2021 - Present",
@@ -409,7 +409,7 @@ import type {
           title: "Software Developer",
           company: {
             name: "Freelance",
-            image: "/avatar.jpg",
+            image: "/common/avatar.jpg",
             url: "https://github.com/bt18b",
           },
           date: "2019 - 2021",
@@ -437,21 +437,21 @@ import type {
       {
         title: "Project 1",
         description: "Project 1 Description",
-        image: "/no-image.jpg",
+        image: "/placeholder/no-image.jpg",
         year: "2024",
         url: "https://github.com/bt18b",
       },
       {
         title: "Project 1",
         description: "Project 1 Description",
-        image: "/no-image.jpg",
+        image: "/placeholder/no-image.jpg",
         year: "2024",
         url: "https://github.com/bt18b",
       },
       {
         title: "Project 1",
         description: "Project 1 Description",
-        image: "/no-image.jpg",
+        image: "/placeholder/no-image.jpg",
         year: "2024",
         url: "https://github.com/bt18b",
       },
