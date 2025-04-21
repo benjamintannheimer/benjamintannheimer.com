@@ -6,48 +6,50 @@ import { blogPageContent } from "@/config";
 import BentoBox from "@/components/layout/BentoBox.astro";
 
 const posts = await getPosts();
-
 const { seo, page } = blogPageContent;
 ---
 
 <PageLayout seo={seo} page={page}>
-  <!-- Blog Post List -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- Blog Post Rows -->
+  <div class="flex flex-col space-y-6">
     {posts.map((post: any) => (
-      <BentoBox 
-        className="relative overflow-hidden border aspect-square rounded-lg shadow-md hover:shadow-lg transition duration-300 flex flex-col h-full group" 
+      <BentoBox
+        className="flex flex-col sm:flex-row items-stretch border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
         padding={false}
-        hoverHiglight={true}
+        hoverHighlight={true}
       >
-        <!-- Background Image -->
-        <img 
-          src={post.data.image.url} 
-          alt={post.data.image.alt} 
-          loading="lazy" 
-          class="absolute inset-0 object-cover w-full h-full" 
-        />
+        {/* Image Section */}
+        {post.data.image?.url && (
+          <div class="w-full sm:w-1/3 h-55 relative">
+            <img
+              src={post.data.image.url}
+              alt={post.data.image.alt || post.data.title}
+              loading="lazy"
+              class="object-cover w-full h-full"
+            />
+          </div>
+        )}
 
-        <!-- Content Overlay -->
-        <a 
-          href={`/blog/${post.slug}`} 
-          aria-label={`Read more about ${post.data.title}`}
-          class="relative z-10 flex flex-col h-full bg-black/50 text-white p-6"
-        >
-          <div class="flex flex-col flex-grow">
-            <h2 class="text-xl font-bold mb-2 line-clamp-2">{post.data.title}</h2>
-            <p class="text-sm mb-4">
-              {new Date(post.data.pubDate).toLocaleDateString("de-CH")}
+        {/* Text Content */}
+        <div class="flex flex-col justify-between p-6 bg-white flex-grow">
+          <div>
+            <p class="text-sm text-gray-500 mb-2">
+                {new Date(post.data.pubDate).toLocaleDateString("de-CH", { year: 'numeric', month: '2-digit', day: '2-digit' })}
             </p>
-            <p class="mb-4 flex-grow line-clamp-3">
+            <h2 class="text-xl font-bold text-gray-900">
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            </h2>
+            <p class="mt-4 text-gray-700 line-clamp-4">
               {post.data.description}
             </p>
-            <button 
-              class={buttonVariants({ variant: 'default' }) + " mt-auto self-start"}
-            >
-              Read More
-            </button>
           </div>
-        </a>
+          <a
+            href={`/blog/${post.slug}`}
+            class={`${buttonVariants({ size: 'sm' })} self-start mt-6`}
+          >
+            Read More
+          </a>
+        </div>
       </BentoBox>
     ))}
   </div>

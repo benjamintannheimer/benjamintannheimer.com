@@ -22,10 +22,6 @@ const postsCollection = defineCollection({
         alt: z.string(),
       }),
     }).optional(),
-    image: z.object({
-      url: z.string(),
-      alt: z.string(),
-    }),
     readingTime: z.number().optional(),
     tags: z.array(z.string())
   }),
