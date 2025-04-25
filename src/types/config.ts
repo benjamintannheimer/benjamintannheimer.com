@@ -93,6 +93,7 @@ export type BaseLink = {
   };
   
   export type PageContent = {
+    name: string;
     title: string;
     subtitle?: string;
   }

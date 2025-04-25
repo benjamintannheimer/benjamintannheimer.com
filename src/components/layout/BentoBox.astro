@@ -3,11 +3,22 @@ interface Props {
   className?: string;
   padding?: boolean;
   hoverHighlight?: boolean;
+  bgImage?: string;
 }
 
-const { className = "", padding = true, hoverHighlight = false } = Astro.props;
+const {
+  className = "",
+  padding = true,
+  hoverHighlight = false,
+  bgImage,
+} = Astro.props;
 ---
 
-<div class={`rounded-3xl shadow-sm ${padding ? "p-6" : ""} border bg-background ${hoverHighlight ? "transition-all duration-300 hover:ring-2 hover:ring-primary" : ""} ${className}`}>
+<div
+  class={`rounded-3xl shadow-sm ${padding ? "p-6" : ""} border bg-background ${
+    hoverHighlight ? "transition-all duration-300 hover:ring-2 hover:ring-border-foreground" : ""
+  } ${className}`}
+  style={bgImage ? `background-image: url('${bgImage}'); background-size: cover; background-position: center;` : ""}
+>
   <slot />
 </div>

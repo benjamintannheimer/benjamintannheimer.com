@@ -1,24 +1,25 @@
 module.exports = {
-    theme: {
-      extend: {
-        transform: ['hover', 'focus'],
-      },
-    },
-    plugins: [
-      function ({ addUtilities }) {
-        const newUtilities = {
-          '.backface-hidden': {
-            'backface-visibility': 'hidden',
-          },
-          '.perspective': {
-            'perspective': '1000px',
-          },
-          '.transform-style-3d': {
-            'transform-style': 'preserve-3d',
-          },
-        }
-        addUtilities(newUtilities)
+  theme: {
+    extend: {},
+  },
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.transform-style-preserve-3d': {
+          'transform-style': 'preserve-3d',
+        },
+        '.rotate-y-180': {
+          transform: 'rotateY(180deg)',
+        },
+        '.backface-hidden': {
+          'backface-visibility': 'hidden',
+        },
+        '.perspective': {
+          perspective: '1000px',
+        },
       }
-    ]
-  }
-  
+
+      addUtilities(newUtilities, ['responsive'])
+    }
+  ]
+}

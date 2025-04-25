@@ -65,7 +65,7 @@ Licensed under the [MIT License](LICENSE).
 - Biography
 - Resume CV / Download
 - Values and Mission
-- Beyond Software
+- Interests Software
 - What I use
   - Web Dev Setup
   - Hardware

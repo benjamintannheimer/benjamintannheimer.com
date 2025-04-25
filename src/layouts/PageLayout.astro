@@ -20,9 +20,9 @@ const { seo, page, backlink } = Astro.props;
     image: seo.image
   }}
 >
-  <section class="container mx-auto px-4 py-3">
+  <section id={page.name} class="container mx-auto px-4 py-3">
     <div class="container mx-auto px-4 md:px-6">
-        <PageHeader title={page.title} subtitle={page.subtitle} backlink={backlink}></PageHeader>
+        <PageHeader title={page.title} subtitle={page.subtitle} backlink={backlink} />
         <slot />
     </div>
   </section>

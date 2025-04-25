@@ -355,6 +355,7 @@ import type {
       image: identity.avatar,
     },
     page: {
+      name: "home",
       title: "Hi, I'm Ben. I'm a developer.",
       subtitle: "I like building stuff."
     },
@@ -383,6 +384,7 @@ import type {
       image: identity.avatar,
     },
     page: {
+      name: "about",
       title: "About me",
       subtitle: "Passionate software developer."
     },
@@ -430,6 +432,7 @@ import type {
       image: identity.avatar,
     },
     page: {
+      name: "projects",
       title: "Projects",
       subtitle: "Check out what I've been working on"
     },
@@ -466,6 +469,7 @@ import type {
       image: identity.avatar,
     },
     page: {
+      name: "blog",
       title: "Blog",
       subtitle: "Thoughts and ideas"
     },
@@ -479,6 +483,7 @@ import type {
       image: identity.avatar,
     },
     page: {
+      name: "credits",
       title: "Credits",
       subtitle: "Sources of inspiration for building this blog.",
     },
@@ -517,6 +522,7 @@ import type {
       image: identity.avatar,
     },
     page: {
+      name: "privacy",
       title: "Privacy",
       subtitle: "Privacy policy"
     },
@@ -535,6 +541,7 @@ import type {
       image: identity.avatar,
     },
     page: {
+      name: "contact",
       title: "Contact",
       subtitle: "Wanna talk? Reach out to me"
     },
@@ -548,6 +555,7 @@ import type {
       image: identity.avatar,
     },
     page: {
+      name:"notFound",
       title: "404",
       subtitle: "Page not found"
     },

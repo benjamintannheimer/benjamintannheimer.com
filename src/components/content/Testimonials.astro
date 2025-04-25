@@ -9,7 +9,7 @@ import { testimonials } from "@/config";
   <div class="max-w-6xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
     {testimonials.map(testimonial => (
       <BentoBox className="p-6">
-        <div class="text-center">
+        <div class="flex flex-col items-center text-center h-full">
           <img 
             src={testimonial.avatar} 
             alt={`Profile picture of ${testimonial.name}`} 
@@ -17,8 +17,8 @@ import { testimonials } from "@/config";
           />
           <h3 class="mt-4 text-2xl font-bold">{testimonial.name}</h3>
           <p class="text-sm text-muted-foreground mt-1">{testimonial.jobTitle}</p>
-          <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">{testimonial.text}</p>
-          <div class="mt-4 flex justify-center space-x-4">
+          <p class="mt-4 mb-4 text-lg text-gray-700 dark:text-gray-300">{testimonial.text}</p>
+          <div class="mt-auto flex justify-center space-x-4">
             {testimonial.links.map(link => (
               <a 
                 href={link.url} 

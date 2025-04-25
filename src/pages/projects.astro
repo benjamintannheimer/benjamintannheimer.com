@@ -12,7 +12,6 @@ const { seo, page } = projectsPageContent;
   seo={seo}
   page={page}
 >
-  <!-- Project Cards -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {projects.map((project) => (
       <BentoBox 
@@ -20,15 +19,12 @@ const { seo, page } = projectsPageContent;
         padding={false}
         hoverHighlight={true}
       >
-        <!-- Background Image -->
         <img 
           src={project.image} 
           alt={project.description} 
           loading="lazy" 
           class="absolute inset-0 object-cover w-full h-full" 
         />
-
-        <!-- Content Overlay -->
         <a
           href={project.url} 
           aria-label={`Read more about ${project.title}`}

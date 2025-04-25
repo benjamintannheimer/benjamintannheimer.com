@@ -1,0 +1,29 @@
+---
+import BentoBox from '@/components/layout/BentoBox.astro';
+import Header from '@/components/page/Header.astro';
+
+const interests = [
+  { title: 'Traveling', details: 'Exploring new places, experiencing different cultures, and enjoying local cuisines—each journey fuels my creativity.' },
+  { title: 'Photography', details: 'Capturing moments and landscapes through my lens is not only a hobby but a way to express my artistic side.' },
+  { title: 'Music & Concerts', details: 'Whether I’m playing an instrument or attending live shows, music is a constant source of inspiration and relaxation.' },
+  { title: 'Cooking & Culinary Experiments', details: 'I enjoy experimenting in the kitchen, discovering new recipes, and sharing delicious meals with friends and family.' },
+  { title: 'Sports & Outdoor Activities', details: 'From hiking and cycling to a friendly game of soccer, staying active is key to keeping my mind and body balanced.' },
+];
+---
+
+<Header title="Interests" subtitle="Other Things I Enjoy Doing"></Header>
+
+<section id="beyond">
+  <div class="max-w-6xl">
+    <div class="mb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {interests.map(item => (
+        <BentoBox className="aspect-square">
+          <div class="flex flex-col">
+            <span class="font-bold text-lg">{item.title}</span>
+            <span class="text-sm text-muted-foreground">{item.details}</span>
+          </div>
+        </BentoBox>
+      ))}
+    </div>
+  </div>
+</section>

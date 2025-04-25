@@ -39,6 +39,7 @@ const { Content } = await post.render();
     image: post.data.image.url,
   }}
   page={{
+    name: post.slug,
     title: post.data.title,
     subtitle: post.data.description,
   }}
@@ -63,10 +64,7 @@ const { Content } = await post.render();
         BlogImage,
       }}
     />
-    
-    <!-- Author Box -->
     <div class="flex items-center gap-4 mt-8 mb-6 p-4 border rounded-lg">
-      <!-- Author Avatar -->
       <Image
         src={post.data.author?.image.url || identity.avatar}
         alt={post.data.author?.image.alt || identity.name}
@@ -74,17 +72,13 @@ const { Content } = await post.render();
         height={64}
         class="w-16 h-16 rounded-full object-cover border-2"
       />
-
-      <!-- Author Details -->
       <div class="flex flex-col">
         <p class="text-lg font-semibold text-foreground">{post.data.author?.name || identity.name}</p>
         <p class="text-xs text-gray-500 mt-1">
           Published on {new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </p>
-        
-        <!-- Social Links - Fixed -->
         <div class="flex items-center gap-3 mt-2">
-          {post.data.author.socialLinks.map(({ url, icon, title }) => {
+          {post.data.author && post.data.author.socialLinks.map(({ url, icon, title }) => {
             const LucideIcon = icons[icon as keyof typeof icons] || AlertTriangle;
             
             if (!icons[icon as keyof typeof icons]) {
