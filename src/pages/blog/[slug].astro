@@ -36,7 +36,7 @@ const { Content } = await post.render();
   seo={{
     title: post.data.title,
     description: post.data.description,
-    image: post.data.image.url,
+    image: post.slug,
   }}
   page={{
     name: post.slug,

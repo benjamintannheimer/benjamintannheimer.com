@@ -1,56 +1,44 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
-import { buttonVariants } from "@/components/ui/button";
 import { getPosts } from "@/lib/getPosts";
 import { blogPageContent } from "@/config";
 import BentoBox from "@/components/layout/BentoBox.astro";
 
 const posts = await getPosts();
 const { seo, page } = blogPageContent;
+const toDateStr = (date: Date) => date.toLocaleDateString("de-CH", { year: "numeric", month: "2-digit", day: "2-digit" });
 ---
 
 <PageLayout seo={seo} page={page}>
   <!-- Blog Post Rows -->
   <div class="flex flex-col space-y-6">
-    {posts.map((post: any) => (
-      <BentoBox
-        className="flex flex-col sm:flex-row items-stretch border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
-        padding={false}
-        hoverHighlight={true}
-      >
-        {/* Image Section */}
-        {post.data.image?.url && (
-          <div class="w-full sm:w-1/3 h-55 relative">
-            <img
-              src={post.data.image.url}
-              alt={post.data.image.alt || post.data.title}
-              loading="lazy"
-              class="object-cover w-full h-full"
-            />
-          </div>
-        )}
+    {posts.map((post) => {
+      return (
+        <BentoBox
+          href={`/blog/${post.slug}`}
+          className="flex flex-col sm:flex-row items-stretch border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden cursor-pointer"
+          padding={false}
+          hoverHighlight
+        >
+          {/* Text Content */}
+          <div class="flex flex-col justify-between p-6 bg-background flex-grow">
+            {/* Date and title */}
+            <div class="flex items-baseline space-x-2 mb-4">
+              <span class="text-lg text-gray-600 dark:text-gray-400">
+                {toDateStr(post.data.pubDate)}
+              </span>
+              <span class="text-lg font-semibold text-foreground">
+                {post.data.title}
+              </span>
+            </div>
 
-        {/* Text Content */}
-        <div class="flex flex-col justify-between p-6 bg-white flex-grow">
-          <div>
-            <p class="text-sm text-gray-500 mb-2">
-                {new Date(post.data.pubDate).toLocaleDateString("de-CH", { year: 'numeric', month: '2-digit', day: '2-digit' })}
-            </p>
-            <h2 class="text-xl font-bold text-gray-900">
-              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-            </h2>
-            <p class="mt-4 text-gray-700 line-clamp-4">
-              {post.data.description}
-            </p>
+            {/* Tags */}
+            <div class="text-gray-500">
+              {post.data.tags.map((tag) => `#${tag} `)}
+            </div>
           </div>
-          <a
-            href={`/blog/${post.slug}`}
-            class={`${buttonVariants({ size: 'sm' })} self-start mt-6`}
-          >
-            Read More
-          </a>
-        </div>
-      </BentoBox>
-    ))}
+        </BentoBox>
+      );
+    })}
   </div>
 </PageLayout>

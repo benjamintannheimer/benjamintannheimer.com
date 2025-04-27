@@ -4,12 +4,14 @@ interface Props {
   padding?: boolean;
   hoverHighlight?: boolean;
   bgImage?: string;
+  href?: string;
 }
 
 const {
   className = "",
   padding = true,
-  hoverHighlight = false,
+  hoverHighlight = false, 
+  href,
   bgImage,
 } = Astro.props;
 ---
@@ -20,5 +22,11 @@ const {
   } ${className}`}
   style={bgImage ? `background-image: url('${bgImage}'); background-size: cover; background-position: center;` : ""}
 >
-  <slot />
+  {href ? (
+    <a class="w-full" href={`${href}`}>
+      <slot />
+    </a>
+  ) : (
+    <slot />
+  )}
 </div>
