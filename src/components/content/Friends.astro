@@ -8,11 +8,8 @@ import { friends } from "@/config";
 <section id="friends">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     {friends.map((friend) => (
-      <BentoBox hoverHighlight={true}>
-        <a 
-          href={friend.url} 
-          target="_blank" 
-          rel="noopener noreferrer"
+      <BentoBox hoverHighlight={true} href={friend.url} target="_blank" rel="noopener noreferrer">
+        <div 
           class="flex items-center space-x-4"
         >
           <img 
@@ -28,7 +25,7 @@ import { friends } from "@/config";
               {friend.description}
             </p>
           </div>
-        </a>
+        </div>
       </BentoBox>
     ))}
   </div>  

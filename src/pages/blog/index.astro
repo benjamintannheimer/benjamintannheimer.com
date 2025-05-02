@@ -22,8 +22,8 @@ const toDateStr = (date: Date) => date.toLocaleDateString("de-CH", { year: "nume
         >
           {/* Text Content */}
           <div class="flex flex-col justify-between p-6 bg-background flex-grow">
-            {/* Date and title */}
-            <div class="flex items-baseline space-x-2 mb-4">
+            <!-- Date and title -->
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:space-x-2 mb-4 space-y-1 sm:space-y-0">
               <span class="text-lg text-gray-600 dark:text-gray-400">
                 {toDateStr(post.data.pubDate)}
               </span>

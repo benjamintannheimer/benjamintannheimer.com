@@ -5,6 +5,8 @@ interface Props {
   hoverHighlight?: boolean;
   bgImage?: string;
   href?: string;
+  target?: string;
+  rel?: string;
 }
 
 const {
@@ -12,6 +14,8 @@ const {
   padding = true,
   hoverHighlight = false, 
   href,
+  target,
+  rel,
   bgImage,
 } = Astro.props;
 ---
@@ -23,7 +27,7 @@ const {
   style={bgImage ? `background-image: url('${bgImage}'); background-size: cover; background-position: center;` : ""}
 >
   {href ? (
-    <a class="w-full" href={`${href}`}>
+    <a class="w-full" href={href} target={target} rel={rel}>
       <slot />
     </a>
   ) : (
