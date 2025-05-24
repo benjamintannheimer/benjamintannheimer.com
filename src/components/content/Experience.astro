@@ -21,7 +21,14 @@ import { experiences } from '@/config';
                     </div>
                 </div>
                 <p class="mt-2">{exp.description}</p>
-                <p class="mt-2 text-gray-500">{exp.technologies.map((tech) => `#${tech.name} `)}</p>
+                <div class="mt-2">
+                    {exp.technologies.map((tech) => (
+                        <span class="bg-background text-foreground text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm border">
+                            {tech.name}
+                        </span>
+                        )
+                    )}
+                </div>
             </div>
         </BentoBox>
     ))}

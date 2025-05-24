@@ -80,6 +80,7 @@ export type BaseLink = {
   export type Identity = {
     name: string;
     avatar: string;
+    blogUrl: string;
     email: string;
     utcDiff: number;
     countryCode: string;
@@ -135,6 +136,7 @@ export type BaseLink = {
     image: string;
     year: string;
     url: string;
+    tech: string[];
   };
 
   export type Credit = {

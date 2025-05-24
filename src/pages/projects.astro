@@ -12,10 +12,10 @@ const { seo, page } = projectsPageContent;
   seo={seo}
   page={page}
 >
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     {projects.map((project) => (
       <BentoBox 
-        className="relative overflow-hidden border aspect-square rounded-lg shadow-md hover:shadow-lg transition duration-300 flex flex-col h-full group" 
+        className="relative overflow-hidden border rounded-lg shadow-md hover:shadow-lg transition duration-300 flex flex-col group min-h-[300px]" 
         padding={false}
         hoverHighlight={true}
       >
@@ -30,16 +30,19 @@ const { seo, page } = projectsPageContent;
           aria-label={`Read more about ${project.title}`}
           class="relative z-10 flex flex-col h-full bg-black/50 text-white p-6"
         >
-          <div class="flex flex-col flex-grow">
-            <h2 class="text-xl font-bold mb-2 line-clamp-2">{project.title}</h2>
-            <p class="mb-4 flex-grow line-clamp-3">
+          <div class="flex-grow" />
+          <div class="flex flex-col mt-auto">
+            <h2 class="text-xl font-bold mb-2 line-clamp-3">{project.title}</h2>
+            <p class="mb-4 line-clamp-3">
+              {project.tech.map((tech) => (
+                <span class="bg-background text-foreground text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm border">
+                  {tech}
+                </span>
+              ))}
+            </p>
+            <p class="mb-4 line-clamp-3">
               {project.description}
             </p>
-            <button 
-              class={buttonVariants({ variant: 'default' }) + " mt-auto self-start"}
-            >
-              Read More
-            </button>
           </div>
         </a>
       </BentoBox>

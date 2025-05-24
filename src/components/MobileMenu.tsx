@@ -1,30 +1,34 @@
-// src/components/MobileMenu.tsx
 import React from 'react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { SheetTitle } from "@/components/ui/sheet";
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
-import { navBarLinks } from '@/config'
+import { navBarLinks } from '@/config';
+import { Button } from "@/components/ui/button";
 
 export default function MobileMenu() {
   return (
     <Sheet>
-      <SheetTrigger className="sm:hidden">
-        <Menu className="w-6 h-6" />
+      <SheetTrigger asChild>
+        <Button variant="ghost" size="icon" className="sm:hidden" aria-label="Open mobile menu">
+          <Menu className="w-5 h-5" />
+        </Button>
       </SheetTrigger>
+
       <SheetContent side="left" className="w-64">
         <VisuallyHidden>
-            <SheetTitle>
-                Mobile Menu
-            </SheetTitle>
+          <SheetTitle>Mobile Menu</SheetTitle>
         </VisuallyHidden>
-        <nav className="flex flex-col space-y-4 ms-8 mt-8">
+
+        <div className="ml-5">
+          <nav className="mt-4 space-y-2">
             {navBarLinks.map((lnk, index) => (
-                <a key={index} href={lnk.url} className="text-lg font-semibold">
-                    <span className="inline-block font-bold">{lnk.title}</span>
-                </a>  
+              <a key={index} href={lnk.url} className="block text-lg font-semibold hover:underline">
+                {lnk.title}
+              </a>
             ))}
-        </nav>
+          </nav>
+        </div>
       </SheetContent>
     </Sheet>
   );

@@ -27,14 +27,26 @@ const toDateStr = (date: Date) => date.toLocaleDateString("de-CH", { year: "nume
               <span class="text-lg text-gray-600 dark:text-gray-400">
                 {toDateStr(post.data.pubDate)}
               </span>
+            </div>
+            <div class="flex items-baseline space-x-2 mb-2">
               <span class="text-lg font-semibold text-foreground">
                 {post.data.title}
               </span>
             </div>
 
+            <div class="flex items-baseline space-x-2 mb-4">
+              <span class="text-md text-gray-600 dark:text-gray-400">
+                {post.data.description}
+              </span>
+            </div>
+
             {/* Tags */}
             <div class="text-gray-500">
-              {post.data.tags.map((tag) => `#${tag} `)}
+              {post.data.tags.map((tag) => (
+                <span class="bg-background text-foreground text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm border">
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </BentoBox>

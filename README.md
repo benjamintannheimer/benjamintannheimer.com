@@ -46,22 +46,36 @@ Licensed under the [MIT License](LICENSE).
 
 # Navbar
 
-- Home
+- Home (as url of blog)
 - About
+- Experience
 - Projects
-- Blog
-- Links
+- Blogs
+- Contact
 
 # Home
 
+- Profile Card
+- Tech I use
+- Experience
+- Education
+- Projects
+- Blogs
+- Connect
+===============
 - Experience
 - Education
 - Certifications
 - Testimonials
 - Connect
 
-# About
+# About me
 
+- Biography
+- Honors and Awards
+- Certifications
+- Voluntary work
+===============
 - Biography
 - Resume CV / Download
 - Values and Mission
@@ -74,6 +88,8 @@ Licensed under the [MIT License](LICENSE).
 - Connect
 
 # Projects
+
+![alt text](image.png)
 
 - top 3
 - others

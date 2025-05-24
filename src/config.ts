@@ -39,6 +39,7 @@ import type {
   export const identity: Identity = {
     name: "Benjamin Tannheimer",
     avatar: "/common/avatar.jpg",
+    blogUrl: "benjamint.io",
     email: "benjamintannheimer [at] protonmail.com",
     utcDiff: 1,
     countryCode: "CH", // use the two letter iso code
@@ -61,6 +62,10 @@ import type {
     {
       title: "Projects",
       url: "/projects",
+    },
+    {
+      title: "Homelab",
+      url: "/homelab",
     },
   ];
   
@@ -443,6 +448,9 @@ import type {
         image: "/placeholder/no-image.jpg",
         year: "2024",
         url: "https://github.com/bt18b",
+        tech: [
+          "Django",
+        ]
       },
       {
         title: "Project 1",
@@ -450,6 +458,9 @@ import type {
         image: "/placeholder/no-image.jpg",
         year: "2024",
         url: "https://github.com/bt18b",
+        tech: [
+          "Django",
+        ]
       },
       {
         title: "Project 1",
@@ -457,6 +468,9 @@ import type {
         image: "/placeholder/no-image.jpg",
         year: "2024",
         url: "https://github.com/bt18b",
+        tech: [
+          "Django",
+        ]
       },
     ],
   };

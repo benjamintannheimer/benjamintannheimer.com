@@ -2,12 +2,14 @@
 import PageLayout from "@/layouts/PageLayout.astro";
 import { aboutPageContent } from "@/config";
 import Connect from "@/components/content/Connect.astro";
+import Certifications from "@/components/content/Certifications.astro";
+import Recognition from "@/components/content/Recognition.astro";
 import Equipment from "@/components/content/Equipment.astro";
 import Biography from "@/components/content/Biography.astro";
 import Friends from "@/components/content/Friends.astro";
-import Profile from "@/components/content/Profile.astro";
 import Principles from "@/components/content/Principles.astro";
 import Interests from "@/components/content/Interests.astro";
+import Numbers from "@/components/content/Numbers.astro";
 
 const { seo, page } = aboutPageContent;
 ---
@@ -16,11 +18,13 @@ const { seo, page } = aboutPageContent;
   seo={seo} 
   page={page}
 >
-  <Profile />
   <Biography/>
-  <Friends />
+  <Numbers />
+  <Recognition />
+  <Certifications />
   <Principles />
   <Interests />
   <Equipment />
+  <Friends />
   <Connect />
 </PageLayout>
