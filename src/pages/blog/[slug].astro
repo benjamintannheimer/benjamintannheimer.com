@@ -17,7 +17,9 @@ import {
 } from "@/components/blog/Typography";
 import BlogImage from "@/components/blog/BlogImage.astro";
 import { Link } from "@/components/Link";
-import { socialLinks, identity } from "@/config";
+import { identity } from "@/config";
+import { customIconMap } from "@/lib/customIcons.ts";
+
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -79,8 +81,11 @@ const { Content } = await post.render();
         </p>
         <div class="flex items-center gap-3 mt-2">
           {post.data.author && post.data.author.socialLinks.map(({ url, icon, title }) => {
-            const LucideIcon = icons[icon as keyof typeof icons] || AlertTriangle;
-            
+            const LucideIcon =
+              customIconMap[icon] ||
+              icons[icon as keyof typeof icons] ||
+              AlertTriangle;     
+       
             if (!icons[icon as keyof typeof icons]) {
               console.warn(`⚠️ Icon "${icon}" not found in lucide-react. Using fallback.`);
             }

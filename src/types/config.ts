@@ -79,6 +79,22 @@ export type BaseLink = {
     links: BaseLink[];
   }
 
+  export type Figure = Partial<BaseLink> & {
+    figure: number;
+    description: string;
+    lastUpdated: Date;
+  }
+
+  export type Recognition = Partial<BaseLink> & {
+    issuedBy: string;
+    date: Date;
+  }
+
+  export type Interest = {
+    title: string;
+    details: string;
+  }
+
   export type Identity = {
     name: string;
     avatar: string;

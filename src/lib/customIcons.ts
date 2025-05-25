@@ -1,4 +1,4 @@
-import { createLucideIcon } from "lucide-react";
+import { createLucideIcon, type LucideProps } from "lucide-react";
 
 export const XIcon = createLucideIcon("X", [
   [
@@ -21,3 +21,9 @@ export const DiscordIcon = createLucideIcon("Discord", [
     },
   ],
 ]);
+
+
+export const customIconMap: Record<string, React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>> = {
+  X: XIcon,
+  Discord: DiscordIcon
+};

@@ -2,15 +2,7 @@
 import { buttonVariants } from "@/components/ui/button";
 import { icons, AlertTriangle, type LucideProps } from "lucide-react";
 import { socialLinks } from "@/config";
-import { XIcon, DiscordIcon } from "@/lib/customIcons.ts";
-
-// TODO: make this cleaner
-// customs icons are created at /src/lib/customIcons.ts
-const customIconMap: Record<string, React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>> = {
-  X: XIcon,
-  Discord: DiscordIcon
-};
-
+import { customIconMap } from "@/lib/customIcons.ts";
 ---
 {socialLinks.map(({ url, icon, title }) => {
   // Prefer custom icon if available, then Lucide, then fallback

@@ -105,3 +105,7 @@ Licensed under the [MIT License](LICENSE).
 # Run docker
 
 docker-compose up --build
+
+
+## TODO
+- [ ] Add imprint (legal reasons)

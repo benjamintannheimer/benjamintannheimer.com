@@ -10,6 +10,8 @@ import type {
     Experience,
     Education,
     Testimonial,
+    Figure,
+    Recognition,
     Hardware,
     Software,
     AboutPageContent,
@@ -20,7 +22,8 @@ import type {
     ContactPageContent,
     NotFoundPageContent,
     HomePageContent,
-  } from "./types/config";
+    Interest,
+  } from "@/types/config";
 
   // Common ===========================================================================
   export const position: Position = {
@@ -309,7 +312,7 @@ import type {
       company: "Swisscom (Switzerland) AG",
       date: "Aug 2022 - Jul 2024",
       country: "Switzerland",
-      description: "During my apprenticeship at Swisscom as an Application Developer through the Way-Up EFZ program, I gained hands-on experience in designing, developing, and testing software solutions. I worked collaboratively with cross-functional teams on diverse projects, which helped me hone my skills in modern programming languages and agile methodologies. This role provided a strong foundation in real-world application development and an in-depth understanding of the telecommunications industry.",
+      description: "During my Swisscom apprenticeship as a Way-Up EFZ Application Developer, I gained practical experience in software development, agile teamwork, and the telecommunications industry.",
       technologies: [
         { name: "Next.js" },
         { name: "Nest.js" },
@@ -330,7 +333,7 @@ import type {
       logo: "/placeholder/no-image.jpg",
       degree: "Swiss Matura",
       country: "Switzerland",
-      date: "2018 - 2022",
+      date: "Aug 2018 - Aug 2022",
       description: "Completed the Swiss Matura, a secondary school diploma that provides a broad academic foundation and prepares students for higher education in Switzerland."
     }    
   ];
@@ -376,6 +379,46 @@ import type {
         { title: "LinkedIn", url: "https://linkedin.com/in/emilydavis", external: true }
       ]
     }
+  ];
+
+  export const figures: Figure[] = [
+    { 
+      figure: 1595, 
+      description: "CHF earned through bug bounty", 
+      lastUpdated: new Date("03.07.2025"),
+      title: "something",
+      url: "https://example.com",
+      external: true,
+    },
+    { 
+      figure: 29, 
+      description: "Accepted bug bounty reports", 
+      lastUpdated: new Date("03.07.2025"),
+      // title: "something",
+      // url: "https://example.com",
+      // external: true,
+    },
+  ];
+
+  export const recognitions: Recognition[] = [
+    { 
+      issuedBy: 'Institute for Excellence', 
+      title: "Mastery Award", 
+      date: new Date("03.07.2025") 
+    },
+    { 
+      issuedBy: 'University of Bagdad', 
+      title: "Magna Cum Laude", 
+      date: new Date("03.07.2025")
+    },
+  ];
+
+  export const interests: Interest[] = [
+    { title: 'Traveling', details: 'Exploring new places, experiencing different cultures, and enjoying local cuisines—each journey fuels my creativity.' },
+    { title: 'Photography', details: 'Capturing moments and landscapes through my lens is not only a hobby but a way to express my artistic side.' },
+    { title: 'Music & Concerts', details: 'Whether I’m playing an instrument or attending live shows, music is a constant source of inspiration and relaxation.' },
+    { title: 'Cooking & Culinary Experiments', details: 'I enjoy experimenting in the kitchen, discovering new recipes, and sharing delicious meals with friends and family.' },
+    { title: 'Sports & Outdoor Activities', details: 'From hiking and cycling to a friendly game of soccer, staying active is key to keeping my mind and body balanced.' },
   ];
 
   // PageContent =====================================================================
