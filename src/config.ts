@@ -23,6 +23,7 @@ import type {
     NotFoundPageContent,
     HomePageContent,
     Interest,
+    HomelabPageContent,
   } from "@/types/config";
 
   // Common ===========================================================================
@@ -509,6 +510,20 @@ import type {
     },
   };
   
+  // Blog (/blog)
+  export const homelabPageContent: HomelabPageContent = {
+    seo: {
+      title: makeSEOTitle("Homelab", identity.name),
+      description: "Homelab iterations.",
+      image: identity.avatar,
+    },
+    page: {
+      name: "hoemlab",
+      title: "Homelab",
+      subtitle: "Homelab iterations."
+    },
+  };
+
   // Projects (/projects)
   export const projectsPageContent: ProjectPageContent = {
     seo: {

@@ -168,6 +168,8 @@ export type BaseLink = {
   };
   
   export type BlogPageContent = BasePage & {};
+  
+  export type HomelabPageContent = BasePage & {};
 
   export type CreditsPageContent = BasePage & {
     description: string;

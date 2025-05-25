@@ -19,6 +19,7 @@ import BlogImage from "@/components/blog/BlogImage.astro";
 import { Link } from "@/components/Link";
 import { identity } from "@/config";
 import { customIconMap } from "@/lib/customIcons.ts";
+import Pill from "@/components/layout/Pill.astro";
 
 
 export async function getStaticPaths() {
@@ -51,6 +52,11 @@ const { Content } = await post.render();
   }}
 >
   <article class="prose prose-invert mb-24 text-foreground">
+    <div>
+      <div class="flex flex-wrap gap-2 mt-2">
+          Tags: {post.data.tags.map((tag) => <Pill text={tag}></Pill>)}
+      </div>
+    </div>
     <Content
       components={{
         h1: TypographyH1,

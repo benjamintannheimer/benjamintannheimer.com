@@ -1,0 +1,13 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import { homelabPageContent } from "@/config";
+
+const { seo, page } = homelabPageContent;
+---
+
+<PageLayout 
+  seo={seo} 
+  page={page}
+>
+  <p>Homelab stuff</p>
+</PageLayout>
