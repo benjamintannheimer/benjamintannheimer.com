@@ -1,6 +1,9 @@
 ---
 import { identity, position } from '@/config';
+import { buttonVariants } from "@/components/ui/button";
 import BentoBox from '@/components/layout/BentoBox.astro';
+import SocialLinks from '@/components/content/SocialLinks.astro';
+import { File } from 'lucide-react';
 ---
 <section class="mt-8">
   <BentoBox className="p-6">
@@ -10,7 +13,7 @@ import BentoBox from '@/components/layout/BentoBox.astro';
         <img 
           src={identity.avatar} 
           alt={`Avatar of ${identity.name}`} 
-          class="w-32 h-32 rounded-full border shadow-sm" 
+          class="w-32 h-32 rounded-lg border shadow-sm" 
         />
       </div>
       {/* Details */}
@@ -20,12 +23,7 @@ import BentoBox from '@/components/layout/BentoBox.astro';
           Currently working at <span class="text-primary">{position.company.name}</span> as <span class="text-primary">{position.jobTitle}</span> in <span class="text-primary">{position.company.location}</span>
         </p>
         <div class="mt-4">
-          <a 
-            href="/resume.pdf" 
-            class="inline-flex items-center px-4 py-2 text-sm font-medium text-background bg-primary rounded-3xl transition-all duration-300 hover:ring-2 hover:ring-gray-600"
-          >
-            Resume
-          </a>
+          <SocialLinks />
         </div>
       </div>
     </div>

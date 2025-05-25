@@ -3,6 +3,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    require('@tailwindcss/aspect-ratio'),
     function ({ addUtilities }) {
       const newUtilities = {
         '.transform-style-preserve-3d': {

@@ -27,13 +27,13 @@ export type BaseLink = {
     image?: string;
   }
 
-  export type Software = BaseLink & {
+  export type Software = Partial<BaseLink> & {
     pricing: string;
     usage?: string;
     details?: string;
   }
 
-  export type Hardware = BaseLink & {
+  export type Hardware = Partial<BaseLink> & {
     usage?: string;
     details?: string;
   }
@@ -58,6 +58,7 @@ export type BaseLink = {
     logo: string;
     company: string;
     date: string;
+    country: string;
     description: string;
     technologies: Technology[];
   }
@@ -65,6 +66,7 @@ export type BaseLink = {
   export type Education = BaseLink & {
     degree: string;
     logo: string;
+    country: string;
     date: string;
     description: string;
   }

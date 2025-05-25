@@ -1,33 +1,40 @@
 ---
 import Header from '@/components/page/Header.astro';
 import BentoBox from '@/components/layout/BentoBox.astro';
+import Pill from '@/components/layout/Pill.astro';
 import { experiences } from '@/config';
-
+import { Link } from '@/components/Link';
 ---
 
 <Header title="Experience" subtitle="Where I have worked." />
-
 <section id="experience">
     {experiences.map(exp => (
         <BentoBox className="mb-6" padding={true}>
             <div class="mb-6 last:mb-0">
                 <div class="flex items-center space-x-4">
-                    <a href={exp.url} target="_blank" rel="noopener noreferrer">
-                        <img src={exp.logo} alt={`${exp.company} Logo`} class="w-10 h-10 rounded-lg" />
-                    </a>
+                    <div class="hidden sm:block min-w-10">
+                        <a href={exp.url} target="_blank" rel="noopener noreferrer">
+                            <img src={exp.logo} alt={`${exp.company} Logo`} class="w-10 h-10 rounded-lg" />
+                        </a>
+                    </div>
                     <div>
-                        <h3 class="text-xl font-semibold">{exp.title} @{exp.company}</h3>
-                        <p class="text-sm text-muted-foreground">{exp.date}</p>
+                        <h3 class="text-xl font-semibold">{exp.title} 
+                            <span>
+                                <Link
+                                    href="https://example.com"
+                                    className="font-medium underline-offset-4 hover:underline hover:text-foreground transition-colors duration-200"
+                                    target="_blank"
+                                >
+                                    @{exp.company}
+                                </Link>
+                            </span>
+                        </h3>
+                        <p class="text-sm text-muted-foreground">{exp.country}, {exp.date}</p>
                     </div>
                 </div>
                 <p class="mt-2">{exp.description}</p>
-                <div class="mt-2">
-                    {exp.technologies.map((tech) => (
-                        <span class="bg-background text-foreground text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm border">
-                            {tech.name}
-                        </span>
-                        )
-                    )}
+                <div class="flex flex-wrap gap-2 mt-2">
+                    {exp.technologies.map((tech) => <Pill text={tech.name}></Pill>)}
                 </div>
             </div>
         </BentoBox>

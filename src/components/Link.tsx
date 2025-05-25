@@ -5,11 +5,13 @@ type LinkProps = {
 	href: string;
 	className?: string;
 	target?: string;
+	rel?: string;
 };
 export const Link = ({
-	className,
 	href,
+	className,
 	target,
+	rel,
 	children,
 }: PropsWithChildren<LinkProps>) => {
 	const defaultTarget = href.startsWith("/") ? target : "_blank";
@@ -21,6 +23,7 @@ export const Link = ({
 			)}
 			target={target ?? defaultTarget}
 			href={href}
+			rel={rel}
 		>
 			{children}
 		</a>

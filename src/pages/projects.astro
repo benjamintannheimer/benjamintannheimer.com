@@ -1,8 +1,8 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
-import { buttonVariants } from "@/components/ui/button";
 import { projectsPageContent } from "@/config";
 import BentoBox from "@/components/layout/BentoBox.astro";
+import Pill from "@/components/layout/Pill.astro";
 
 const projects = projectsPageContent.projects;
 
@@ -15,7 +15,7 @@ const { seo, page } = projectsPageContent;
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     {projects.map((project) => (
       <BentoBox 
-        className="relative overflow-hidden border rounded-lg shadow-md hover:shadow-lg transition duration-300 flex flex-col group min-h-[300px]" 
+        className="relative overflow-hidden border rounded-lg shadow-md hover:shadow-lg transition duration-300 flex flex-col group aspect-[5/3]" 
         padding={false}
         hoverHighlight={true}
       >
@@ -33,14 +33,12 @@ const { seo, page } = projectsPageContent;
           <div class="flex-grow" />
           <div class="flex flex-col mt-auto">
             <h2 class="text-xl font-bold mb-2 line-clamp-3">{project.title}</h2>
-            <p class="mb-4 line-clamp-3">
-              {project.tech.map((tech) => (
-                <span class="bg-background text-foreground text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm border">
-                  {tech}
-                </span>
-              ))}
-            </p>
-            <p class="line-clamp-3">
+            <div class="flex flex-wrap mb-2">
+              <p class="line-clamp-3">
+                {project.tech.map((tech) => <Pill text={tech}></Pill>)}
+              </p>
+            </div>
+            <p class="hidden sm:block line-clamp-3">
               {project.description}
             </p>
           </div>

@@ -3,6 +3,7 @@ import PageLayout from "@/layouts/PageLayout.astro";
 import { getPosts } from "@/lib/getPosts";
 import { blogPageContent } from "@/config";
 import BentoBox from "@/components/layout/BentoBox.astro";
+import Pill from "@/components/layout/Pill.astro";
 
 const posts = await getPosts();
 const { seo, page } = blogPageContent;
@@ -41,12 +42,8 @@ const toDateStr = (date: Date) => date.toLocaleDateString("de-CH", { year: "nume
             </div>
 
             {/* Tags */}
-            <div class="text-gray-500">
-              {post.data.tags.map((tag) => (
-                <span class="bg-background text-foreground text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm border">
-                  {tag}
-                </span>
-              ))}
+            <div class="text-gray-500 flex flex-wrap gap-2">
+              {post.data.tags.map((tag) => <Pill text={tag}></Pill>)}
             </div>
           </div>
         </BentoBox>

@@ -2,31 +2,39 @@
 import BentoBox from '@/components/layout/BentoBox.astro';
 import Header from '@/components/page/Header.astro';
 import { hardware, software } from '@/config';
+import { Link } from '@/components/Link';
 ---
 
-<Header title="Equipment" subtitle="The following is a selection of my equipment that I use for my professional work."></Header>
+<Header 
+  title="Equipment" 
+  subtitle="The following is a selection of my equipment that I use for my professional work." 
+/>
 
 <section id="setup">
-  <div class="max-w-6xl">
-    {/* Hardware Section */}
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Hardware Section -->
     <div class="mb-12">
       <h3 class="text-2xl font-semibold mb-4">Hardware</h3>
       <BentoBox padding>
         <ul>
           {hardware.map(item => (
-            <li>
+            <li class="mb-4">
               <div class="flex flex-col">
                 {item.url ? (
-                  <a 
-                    href={item.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    class="font-bold text-lg text-primary hover:underline"
+                  <Link
+                    href={item.url}
+                    target="_blank"
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                    className="font-bold text-lg underline underline-offset-4 hover:text-foreground transition-colors duration-200"
                   >
                     {item.title}
-                  </a>
+                  </Link>
                 ) : (
                   <span class="font-bold text-lg">{item.title}</span>
+                )}
+                {item.usage && (
+                  <span class="text-sm text-gray-500">{item.usage}</span>
                 )}
                 {item.details && (
                   <span class="text-sm text-muted-foreground">{item.details}</span>
@@ -38,30 +46,34 @@ import { hardware, software } from '@/config';
       </BentoBox>
     </div>
 
-    {/* Software Section */}
+    <!-- Software Section -->
     <div class="mb-12">
       <h3 class="text-2xl font-semibold mb-4">Software</h3>
       <BentoBox padding>
         <ul>
           {software.map(item => (
-            <li>
+            <li class="mb-4">
               <div class="flex flex-col">
                 {item.url ? (
-                  <a 
-                    href={item.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    class="font-bold text-lg text-primary hover:underline"
+                  <Link
+                    href={item.url}
+                    target="_blank"
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                    className="font-bold text-lg underline-offset-4 hover:underline hover:text-foreground transition-colors duration-200"
                   >
-                    {item.title} 
-                    <span class="text-sm text-gray-500">{item.usage}</span>
-                    <span class="text-sm text-gray-500">({item.pricing})</span>
-                  </a>
+                    {item.title}
+                  </Link>
                 ) : (
                   <span class="font-bold text-lg">{item.title}</span>
-                  <span class="text-sm text-gray-500">{item.usage}</span>
-                  <span class="text-sm text-gray-500">({item.pricing})</span>
                 )}
+                <div class="flex flex-wrap gap-2 mt-1">
+                  {item.usage && (
+                    <span class="text-sm text-gray-500">{item.usage}</span>
+                  )}
+                  {item.pricing && (
+                    <span class="text-sm text-gray-500">({item.pricing})</span>
+                  )}
+                </div>
                 {item.details && (
                   <span class="text-sm text-muted-foreground">{item.details}</span>
                 )}
@@ -71,5 +83,6 @@ import { hardware, software } from '@/config';
         </ul>
       </BentoBox>
     </div>
+
   </div>
 </section>

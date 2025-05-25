@@ -2,7 +2,6 @@ import { makeSEOTitle } from "./lib/utils";
 import type {
     NavBarLink,
     SocialLink,
-    Company,
     Position,
     Identity,
     Technology,
@@ -86,8 +85,22 @@ import type {
     }
   ];
   
-
+  /*
+    // include links for other platforms as well maybe?
+    options:
+      - leetcode
+      - codeforces
+      - kaggle
+      - tryhackme
+      - hackthebox
+  */
   export const socialLinks: SocialLink[] = [
+    {
+      title: "Resume",
+      url: "/resume.pdf",
+      icon: "FileUser",
+      external: false,
+    },
     {
       title: "GitHub",
       url: "https://github.com/bt18b",
@@ -104,6 +117,18 @@ import type {
       title: "LinkedIn",
       url: "https://example.com",
       icon: "Linkedin",
+      external: true,
+    },
+    {
+      title: "X",
+      url: "https://example.com",
+      icon: "X",
+      external: true,
+    },
+    {
+      title: "Discord",
+      url: "https://example.com",
+      icon: "Discord",
       external: true,
     },
   ];
@@ -124,9 +149,9 @@ import type {
   export const hardware: Hardware[] = [
     {
       title: "MacBook Pro 2021",
-      url: "https://affiliate.example.com/macbookpro2021",
-      external: true,
-      usage: "Work",
+      // url: "https://affiliate.example.com/macbookpro2021",
+      // external: true,
+      // usage: "Work",
       details: "14-inch, Apple M1 Pro with 10‑Core CPU, 16‑Core GPU and 16‑Core Neural Engine, 32 GB RAM, 512 GB SSD, QWERTY = English (International)"
     },
     {
@@ -176,8 +201,8 @@ import type {
   export const software: Software[] = [
     {
       title: "Fastmail",
-      url: "https://affiliate.example.com/fastmail",
-      external: true,
+      // url: "https://affiliate.example.com/fastmail",
+      // external: true,
       pricing: "PAID",
       usage: "Email",
       // details: ""
@@ -253,6 +278,7 @@ import type {
       logo: "/placeholder/no-image.jpg",
       company: "Swiss Armed Forces",
       date: "Nov 2024 - Nov 2025",
+      country: "Switzerland",
       description: "Developing intuitive UIs with Astro and Tailwind CSS while collaborating on design and user experience improvements.",
       technologies: [
         { name: "RedHat" },
@@ -267,6 +293,7 @@ import type {
       logo: "/placeholder/no-image.jpg",
       company: "Intersim AG",
       date: "Aug 2024 - Oct 2024",
+      country: "Switzerland",
       description: "Developing and delivering business web applications within the TYPO3 circle.",
       technologies: [
         { name: "Typo3" },
@@ -281,6 +308,7 @@ import type {
       logo: "/placeholder/no-image.jpg",
       company: "Swisscom (Switzerland) AG",
       date: "Aug 2022 - Jul 2024",
+      country: "Switzerland",
       description: "During my apprenticeship at Swisscom as an Application Developer through the Way-Up EFZ program, I gained hands-on experience in designing, developing, and testing software solutions. I worked collaboratively with cross-functional teams on diverse projects, which helped me hone my skills in modern programming languages and agile methodologies. This role provided a strong foundation in real-world application development and an in-depth understanding of the telecommunications industry.",
       technologies: [
         { name: "Next.js" },
@@ -301,6 +329,7 @@ import type {
       external: true,
       logo: "/placeholder/no-image.jpg",
       degree: "Swiss Matura",
+      country: "Switzerland",
       date: "2018 - 2022",
       description: "Completed the Swiss Matura, a secondary school diploma that provides a broad academic foundation and prepares students for higher education in Switzerland."
     }    

@@ -1,9 +1,7 @@
 ---
-import { buttonVariants } from "@/components/ui/button";
-import { icons, AlertTriangle } from 'lucide-react';
 import BentoBox from "@/components/layout/BentoBox.astro";
 import Header from "../page/Header.astro";
-import { socialLinks } from '@/config';
+import SocialLinks from "@/components/content/SocialLinks.astro";
 ---
 
 <Header title="Connect" subtitle="Let's Connect" />
@@ -12,24 +10,6 @@ import { socialLinks } from '@/config';
     <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
       Whether you're looking to explore a new project or simply want to chat, I'm eager to hear your ideas and discuss potential opportunities.
     </p>
-    {socialLinks.map(({ url, icon, title }) => {
-      const LucideIcon = icons[icon as keyof typeof icons] || AlertTriangle;
-      
-      if (!icons[icon as keyof typeof icons]) {
-        console.warn(`⚠️ Icon "${icon}" not found in lucide-react. Using fallback.`);
-      }
-
-      return (
-        <a
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-          class={`${buttonVariants({ variant: 'default' })} m-1 transition-all duration-300 hover:ring-2 hover:ring-gray-600`}
-          aria-label={title}
-        >
-          <LucideIcon className="h-5 w-5" />
-        </a>
-      );
-    })}
+    <SocialLinks />
   </BentoBox>  
 </section>
