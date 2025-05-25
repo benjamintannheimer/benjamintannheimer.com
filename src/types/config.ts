@@ -59,7 +59,7 @@ export type BaseLink = {
     company: string;
     date: string;
     country: string;
-    description: string;
+    description: string[];
     technologies: Technology[];
   }
 
@@ -68,7 +68,7 @@ export type BaseLink = {
     logo: string;
     country: string;
     date: string;
-    description: string;
+    description: string[];
   }
 
   export type Testimonial = {

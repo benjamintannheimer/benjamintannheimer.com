@@ -32,7 +32,9 @@ import { Link } from '@/components/Link';
                 <p class="text-sm text-muted-foreground">{edu.country}, {edu.date}</p>
             </div>
           </div>
-          <p class="mt-2">{edu.description}</p>
+          {edu.description.map(paragraph => (
+            <p class="mt-2">{paragraph}</p>
+          ))}
         </div>
       </BentoBox>
     ))}

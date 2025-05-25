@@ -4,7 +4,7 @@ import { getPosts } from "../lib/getPosts";
 export async function GET(context: any) {
 	const posts = await getPosts();
 	return rss({
-		title: "Welcome | Benjamin Tannheimer",
+		title: "benjamint.io",
 		description:
 			"Hey there.",
 		site: context.site,

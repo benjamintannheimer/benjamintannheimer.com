@@ -137,7 +137,12 @@ import type {
   ];
   
   // ComponentContent =================================================================
-
+  export const biography: string[] = [
+    "I'm a builder at heart. Whether it's coding up backend systems, experimenting with machine learning, or spinning up infrastructure in my homelab, I get a kick out of making things that actually work — and work well. Over the past few years, I've gone deep into dev, AI, and systems design, always chasing that feeling when a rough idea turns into a real, functioning tool.",
+    "This space is a snapshot of what I've been hacking on — projects, thoughts, workflows, and the occasional deep-dive blog post. I care about clarity, clean systems, and pushing my skills in the right direction, whether that's through quant dev, cloud-native infra, or something entirely unexpected.",
+    "I'm open to internships and full-time roles. If you're building something ambitious and want someone who's thoughtful, technical, and not afraid to go deep, let's talk."
+  ];
+  
   export const technologies: Technology[] = [
     {
       name: "JavaScript",
@@ -278,11 +283,11 @@ import type {
       title: "ICT System Specialist I",
       url: "https://example.com",
       external: true,
-      logo: "/placeholder/no-image.jpg",
+      logo: "/swissarmedforces.png",
       company: "Swiss Armed Forces",
       date: "Nov 2024 - Nov 2025",
       country: "Switzerland",
-      description: "Developing intuitive UIs with Astro and Tailwind CSS while collaborating on design and user experience improvements.",
+      description: ["Developing intuitive UIs with Astro and Tailwind CSS while collaborating on design and user experience improvements."],
       technologies: [
         { name: "RedHat" },
         { name: "Cisco" },
@@ -293,11 +298,11 @@ import type {
       title: "Frontend Developer",
       url: "https://example.com",
       external: true,
-      logo: "/placeholder/no-image.jpg",
+      logo: "/intersim.png",
       company: "Intersim AG",
       date: "Aug 2024 - Oct 2024",
       country: "Switzerland",
-      description: "Developing and delivering business web applications within the TYPO3 circle.",
+      description: ["Developing and delivering business web applications within the TYPO3 circle."],
       technologies: [
         { name: "Typo3" },
         { name: "PHP" },
@@ -308,11 +313,11 @@ import type {
       title: "Apprentice Application Developer Way-Up EFZ",
       url: "https://example.com",
       external: true,
-      logo: "/placeholder/no-image.jpg",
+      logo: "/swisscom.jpg",
       company: "Swisscom (Switzerland) AG",
       date: "Aug 2022 - Jul 2024",
       country: "Switzerland",
-      description: "During my Swisscom apprenticeship as a Way-Up EFZ Application Developer, I gained practical experience in software development, agile teamwork, and the telecommunications industry.",
+      description: ["During my Swisscom apprenticeship as a Way-Up EFZ Application Developer, I gained practical experience in software development, agile teamwork, and the telecommunications industry."],
       technologies: [
         { name: "Next.js" },
         { name: "Nest.js" },
@@ -328,13 +333,16 @@ import type {
   export const education: Education[] = [
     {
       title: "Gymnasium Neufeld",
-      url: "https://example.com",
+      url: "https://gymneufeld.ch",
       external: true,
-      logo: "/placeholder/no-image.jpg",
+      logo: "/gymneufeld.png",
       degree: "Swiss Matura",
       country: "Switzerland",
       date: "Aug 2018 - Aug 2022",
-      description: "Completed the Swiss Matura, a secondary school diploma that provides a broad academic foundation and prepares students for higher education in Switzerland."
+      description: [
+        "Completed the Swiss Matura, a secondary school diploma that provides a broad academic foundation and prepares students for higher education in Switzerland",
+        "Main subject: philosophy, education, psychology; supplementary subject: economics and law"
+      ]
     }    
   ];
 

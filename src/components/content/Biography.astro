@@ -1,17 +1,14 @@
 ---
 import BentoBox from "@/components/layout/BentoBox.astro";
+import { biography } from "@/config";
 ---
 
 <section id="biography">
   <BentoBox className="max-w-6xl">
     <div>
-      <p class="text-lg">
-        I'm a builder at heart. Whether it's coding up backend systems, experimenting with machine learning, or spinning up infrastructure in my homelab, I get a kick out of making things that actually work — and work well. Over the past few years, I've gone deep into dev, AI, and systems design, always chasing that feeling when a rough idea turns into a real, functioning tool.
-        <br />
-        This space is a snapshot of what I've been hacking on — projects, thoughts, workflows, and the occasional deep-dive blog post. I care about clarity, clean systems, and pushing my skills in the right direction, whether that's through quant dev, cloud-native infra, or something entirely unexpected.
-        <br />
-        I'm open to internships and full-time roles. If you're building something ambitious and want someone who's thoughtful, technical, and not afraid to go deep, let's talk.
-      </p>
+      {biography.map(paragraph => (
+        <p class="mb-4">{paragraph}</p>
+      ))}
     </div>
   </BentoBox>
 </section>
