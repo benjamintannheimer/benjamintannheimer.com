@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from "react";
 import { cn } from "../../lib/utils";
+import * as React from "react";
 
 export const TypographyH1: React.FC<
   PropsWithChildren<{ className?: string }>

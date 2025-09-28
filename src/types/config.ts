@@ -58,6 +58,7 @@ export type BaseLink = {
     logo: string;
     company: string;
     date: string;
+    current?: boolean;
     country: string;
     description: string[];
     technologies: Technology[];
@@ -82,7 +83,7 @@ export type BaseLink = {
   export type Figure = Partial<BaseLink> & {
     figure: number;
     description: string;
-    lastUpdated: Date;
+    lastUpdated?: Date;
   }
 
   export type Recognition = Partial<BaseLink> & {

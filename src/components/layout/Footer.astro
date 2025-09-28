@@ -2,22 +2,23 @@
 import { identity } from '@/config';
 
 const currentYear = new Date().getFullYear();
-const flagUrl = `https://purecatamphetamine.github.io/country-flag-icons/3x2/${identity.countryCode}.svg`;
 ---
 
 <footer class="border-t py-6 md:py-8 lg:py-10 mt-24">
   <div class="container mx-auto px-4 flex flex-col items-center justify-between gap-6 sm:px-6 lg:px-8">
     <div class="w-full flex flex-col items-center justify-between gap-6 lg:flex-row">
       <p class="text-muted-foreground text-sm leading-loose lg:text-left flex items-center justify-center lg:justify-start gap-2">
-        <span>
-          <img
-          src={flagUrl}
-          alt={identity.country}
-          height="24"
-          width="24"
-          class="rounded-xs shadow-md inline-block"
-        />
-        (UTC{identity.utcDiff > 0 && "+"}{identity.utcDiff}) ©{currentYear} {identity.name}. All rights reserved.</span>
+        <span id="local-time"></span> ©{currentYear} {identity.name}. All rights reserved.
+          <script>
+            const el = document.getElementById("local-time");
+            const now = new Date();
+
+            // Format like: "17:42 (UTC+2)"
+            const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+            const offset = -now.getTimezoneOffset() / 60;
+            const sign = offset >= 0 ? "+" : "";
+            el!.textContent = `${time} (UTC${sign}${offset})`;
+          </script>
       </p>
 
       <p class="text-muted-foreground text-center text-sm leading-loose lg:text-right">

@@ -17,7 +17,7 @@ const convertNumberFormat = (num: number): string => {
 };
 ---
 
-<Header title="Numbers" subtitle="Some numbers to illustrate who I am." />
+<Header title="Numbers" subtitle="Some facts and figures." />
 <section id="beyond">
   <div class="max-w-6xl">
     <div class="mb-12 grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -34,9 +34,11 @@ const convertNumberFormat = (num: number): string => {
         return (
           <BentoBox className="aspect-square" {...linkProps}>
             <div class="flex flex-col justify-center items-center h-full text-center">
-              <span class="text-sm text-muted-foreground">
-                {figure.lastUpdated.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-              </span>
+              {figure.lastUpdated && (
+                <span class="text-sm text-muted-foreground">
+                  {figure.lastUpdated.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                </span>
+              )}
               <span class="font-bold text-6xl">{convertNumberFormat(figure.figure)}</span>
               <span class="text-muted-foreground">{figure.description}</span>
             </div>

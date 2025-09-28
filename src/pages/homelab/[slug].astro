@@ -18,44 +18,39 @@ import BlogImage from "@/components/blog/BlogImage.astro";
 import { Link } from "@/components/Link";
 import { identity } from "@/config";
 import { customIconMap } from "@/lib/customIcons.ts";
-// import Pill from "@/components/layout/Pill.astro";
+import Pill from "@/components/layout/Pill.astro";
 
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
-  return posts.map(post => ({
-    params: { slug: post.data.slug },
-    props: { post },
+  const homelabs = await getCollection("homelabs");
+  return homelabs.map(homelab => ({
+    params: { slug: homelab.data.slug },
+    props: { homelab },
   }));
 }
 
-const { post } = Astro.props;
+const { homelab } = Astro.props;
 
-const { Content } = await render(post);
+const { Content } = await render(homelab);
 ---
 
 <PageLayout
   seo={{
-    title: post.data.title,
-    description: post.data.description,
-    image: post.data.slug,
+    title: homelab.data.title,
+    description: homelab.data.description,
+    image: homelab.data.slug,
   }}
   page={{
-    name: post.data.slug,
-    title: post.data.title,
-    subtitle: post.data.description,
+    name: homelab.data.slug,
+    title: homelab.data.title,
+    subtitle: homelab.data.description,
   }}
   backlink={{
-    title: "Back to posts",
-    url: "/blog"
+    title: "Back to homelabs",
+    url: "/homelab"
   }}
 >
   <article class="prose prose-invert mb-24 text-foreground">
-    <!-- <div>
-      <div class="flex flex-wrap gap-2 mt-2">
-          Tags: {post.data.tags.map((tag) => <Pill text={tag}></Pill>)}
-      </div>
-    </div> -->
     <Content
       components={{
         h1: TypographyH1,
@@ -73,19 +68,19 @@ const { Content } = await render(post);
     />
     <div class="flex items-center gap-4 mt-8 mb-6 p-4 border rounded-lg">
       <Image
-        src={post.data.author?.image.url || identity.avatar}
-        alt={post.data.author?.image.alt || identity.name}
+        src={homelab.data.author?.image.url || identity.avatar}
+        alt={homelab.data.author?.image.alt || identity.name}
         width={64}
         height={64}
         class="w-16 h-16 rounded-full object-cover border-2"
       />
       <div class="flex flex-col">
-        <p class="text-lg font-semibold text-foreground">{post.data.author?.name || identity.name}</p>
+        <p class="text-lg font-semibold text-foreground">{homelab.data.author?.name || identity.name}</p>
         <p class="text-xs text-gray-500 mt-1">
-          Published on {new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          Published on {new Date(homelab.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </p>
         <div class="flex items-center gap-3 mt-2">
-          {post.data.author && post.data.author.socialLinks.map(({ url, icon, title }) => {
+          {homelab.data.author && homelab.data.author.socialLinks.map(({ url, icon, title }) => {
             const LucideIcon =
               customIconMap[icon] ||
               icons[icon as keyof typeof icons] ||

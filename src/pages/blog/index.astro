@@ -7,44 +7,50 @@ import Pill from "@/components/layout/Pill.astro";
 
 const posts = await getPosts();
 const { seo, page } = blogPageContent;
-const toDateStr = (date: Date) => date.toLocaleDateString("de-CH", { year: "numeric", month: "2-digit", day: "2-digit" });
+const toDateStr = (date: Date) =>
+  date.toLocaleDateString("de-CH", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
 ---
 
 <PageLayout seo={seo} page={page}>
   <!-- Blog Post Rows -->
-  <div class="flex flex-col space-y-6">
+  <div class="flex flex-col space-y-3">
     {posts.map((post) => {
       return (
         <BentoBox
-          href={`/blog/${post.slug}`}
+          href={`/blog/${post.data.slug}`}
           className="flex flex-col sm:flex-row items-stretch border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden cursor-pointer"
           padding={false}
           hoverHighlight
         >
           {/* Text Content */}
-          <div class="flex flex-col justify-between p-6 bg-background flex-grow">
-            <!-- Date and title -->
-            <div class="flex flex-col sm:flex-row sm:items-baseline sm:space-x-2 mb-2 space-y-1 sm:space-y-0">
+          <div class="flex flex-col justify-between p-3 bg-background flex-grow">
+            <!-- Date + Title inline -->
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:space-x-2 space-y-1 sm:space-y-0">
               <span class="text-lg text-gray-600 dark:text-gray-400">
                 {toDateStr(post.data.pubDate)}
               </span>
-            </div>
-            <div class="flex items-baseline space-x-2 mb-2">
               <span class="text-lg font-semibold text-foreground">
                 {post.data.title}
               </span>
             </div>
 
+            {/* <!-- Description -->
             <div class="flex items-baseline space-x-2 mb-4">
               <span class="text-md text-gray-600 dark:text-gray-400">
                 {post.data.description}
               </span>
-            </div>
+            </div> */}
 
-            {/* Tags */}
+            {/* <!-- Tags -->
             <div class="text-gray-500 flex flex-wrap gap-2">
-              {post.data.tags.map((tag) => <Pill text={tag}></Pill>)}
-            </div>
+              {post.data.tags.map((tag) => (
+                <Pill text={tag} />
+              ))}
+            </div> */}
           </div>
         </BentoBox>
       );

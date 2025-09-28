@@ -41,9 +41,9 @@ import type {
 
   export const identity: Identity = {
     name: "Benjamin Tannheimer",
-    avatar: "/common/avatar.jpg",
-    blogUrl: "benjamint.io",
-    email: "benjamintannheimer [at] protonmail.com",
+    avatar: "/common/avatar.png",
+    blogUrl: "benjamintannheimer.com",
+    email: "benjamin.tannheimer@proton.com",
     utcDiff: 1,
     countryCode: "CH", // use the two letter iso code
     country: "Switzerland",
@@ -63,12 +63,12 @@ import type {
       url: "/blog",
     },
     {
-      title: "Projects",
-      url: "/projects",
-    },
-    {
       title: "Homelab",
       url: "/homelab",
+    },
+    {
+      title: "Projects",
+      url: "/projects",
     },
   ];
   
@@ -107,7 +107,7 @@ import type {
     },
     {
       title: "GitHub",
-      url: "https://github.com/bt18b",
+      url: "https://github.com/benjamintannheimer",
       icon: "Github",
       external: true,
     },
@@ -119,20 +119,26 @@ import type {
     },
     {
       title: "LinkedIn",
-      url: "https://example.com",
+      url: "https://www.linkedin.com/in/benjamintannheimer",
       icon: "Linkedin",
       external: true,
     },
+    // {
+    //   title: "X",
+    //   url: "https://example.com",
+    //   icon: "X",
+    //   external: true,
+    // },
+    // {
+    //   title: "Discord",
+    //   url: "https://example.com",
+    //   icon: "Discord",
+    //   external: true,
+    // },
     {
-      title: "X",
-      url: "https://example.com",
-      icon: "X",
-      external: true,
-    },
-    {
-      title: "Discord",
-      url: "https://example.com",
-      icon: "Discord",
+      title: "buymeacoffee",
+      url: "https://buymeacoffee.com/benjamintannheimer",
+      icon: "Coffee",
       external: true,
     },
   ];
@@ -287,6 +293,7 @@ import type {
       logo: "/swissarmedforces.png",
       company: "Swiss Armed Forces",
       date: "Nov 2024 - Nov 2025",
+      current: true,
       country: "Switzerland",
       description: ["Developing intuitive UIs with Astro and Tailwind CSS while collaborating on design and user experience improvements."],
       technologies: [
@@ -352,7 +359,7 @@ import type {
       name: "Jason Smith",
       jobTitle: "VP of Product Development at Netflix",
       text: "Working with [Name] is amazing, his ability to comprehend and explain complex topics and apply them is fantastic.",
-      avatar: "/common/avatar.jpg",
+      avatar: "/common/avatar.png",
       links: [
         { title: "Website", url: "https://example.com", external: true },
         { title: "LinkedIn", url: "https://linkedin.com/in/jasonsmith", external: true }
@@ -362,7 +369,7 @@ import type {
       name: "Amanda Johnson",
       jobTitle: "CEO at Creative Solutions",
       text: "Collaborating with [Name] was a turning point for our business, bringing innovation and efficiency.",
-      avatar: "/common/avatar.jpg",
+      avatar: "/common/avatar.png",
       links: [
         { title: "Website", url: "https://example.com", external: true },
         { title: "Twitter", url: "https://twitter.com/amandajohnson", external: true }
@@ -372,7 +379,7 @@ import type {
       name: "Michael Lee",
       jobTitle: "CTO at Innovative Tech",
       text: "His technical skills and visionary approach have made him an indispensable asset to our team.",
-      avatar: "/common/avatar.jpg",
+      avatar: "/common/avatar.png",
       links: [
         { title: "LinkedIn", url: "https://linkedin.com/in/michaellee", external: true },
         { title: "Portfolio", url: "https://michaelleeportfolio.com", external: true }
@@ -382,7 +389,7 @@ import type {
       name: "Emily Davis",
       jobTitle: "Marketing Director at Trendsetters Inc.",
       text: "His insights into digital strategy have transformed our campaigns and increased our ROI.",
-      avatar: "/common/avatar.jpg",
+      avatar: "/common/avatar.png",
       links: [
         { title: "Website", url: "https://example.com", external: true },
         { title: "LinkedIn", url: "https://linkedin.com/in/emilydavis", external: true }
@@ -392,20 +399,16 @@ import type {
 
   export const figures: Figure[] = [
     { 
+      figure:  ~~((Date.now() - +new Date('2003-07-03')) / (31557600000)), 
+      description: "years old", 
+    },
+    { 
       figure: 1595, 
       description: "CHF earned through bug bounty", 
       lastUpdated: new Date("03.07.2025"),
       title: "something",
       url: "https://example.com",
       external: true,
-    },
-    { 
-      figure: 29, 
-      description: "Accepted bug bounty reports", 
-      lastUpdated: new Date("03.07.2025"),
-      // title: "something",
-      // url: "https://example.com",
-      // external: true,
     },
   ];
 
@@ -488,7 +491,7 @@ import type {
           title: "Software Developer",
           company: {
             name: "Freelance",
-            image: "/common/avatar.jpg",
+            image: "/common/avatar.png",
             url: "https://github.com/bt18b",
           },
           date: "2021 - Present",
@@ -497,7 +500,7 @@ import type {
           title: "Software Developer",
           company: {
             name: "Freelance",
-            image: "/common/avatar.jpg",
+            image: "/common/avatar.png",
             url: "https://github.com/bt18b",
           },
           date: "2019 - 2021",
@@ -518,7 +521,7 @@ import type {
       image: identity.avatar,
     },
     page: {
-      name: "hoemlab",
+      name: "homelab",
       title: "Homelab",
       subtitle: "Homelab iterations."
     },
@@ -538,33 +541,16 @@ import type {
     },
     projects: [
       {
-        title: "Project 1",
-        description: "Project 1 Description",
-        image: "/placeholder/no-image.jpg",
-        year: "2024",
-        url: "https://github.com/bt18b",
+        title: "Portfolio",
+        description: "Personal website (you are looking at it right now)",
+        image: "/projects/astro-portfolio.png",
+        year: "2025",
+        url: "https://github.com/benjamintannheimer/benjamintannheimer.com",
         tech: [
-          "Django",
-        ]
-      },
-      {
-        title: "Project 1",
-        description: "Project 1 Description",
-        image: "/placeholder/no-image.jpg",
-        year: "2024",
-        url: "https://github.com/bt18b",
-        tech: [
-          "Django",
-        ]
-      },
-      {
-        title: "Project 1",
-        description: "Project 1 Description",
-        image: "/placeholder/no-image.jpg",
-        year: "2024",
-        url: "https://github.com/bt18b",
-        tech: [
-          "Django",
+          "Astro",
+          "React",
+          "Tailwind",
+          "Shadcn/ui",
         ]
       },
     ],

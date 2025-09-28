@@ -183,6 +183,8 @@
 
 
 pre {
+  margin-top: 12px;
+  margin-bottom: 12px;
   padding: 8px 16px;
   overflow: auto;
   border-radius: 1rem;

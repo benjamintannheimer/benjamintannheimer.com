@@ -4,7 +4,8 @@ import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import pagefind from "astro-pagefind";
+import { transformerMetaHighlight } from "@shikijs/transformers";
+
 
 import alpine from "@astrojs/alpinejs";
 
@@ -14,11 +15,11 @@ export default defineConfig({
     format: "file",
   },
   site: process.env.CI
-    ? "https://benjamint.io"
+    ? "https://benjamintannheimer.com"
     : "http://localhost:3000",
   integrations: [react(), mdx(), sitemap({
       filter: (page) => !page.includes("hidden__"),
-  }), pagefind(), alpine()],
+  }), alpine()],
   vite: {
     plugins: [tailwindcss()],
     build: {
@@ -26,5 +27,20 @@ export default defineConfig({
         external: "/pagefind/pagefind.js?url"
       }
     }
-  }
+  },
+  markdown: {
+    shikiConfig: {
+      transformers: [
+        {
+          pre(hast) {
+            // pass raw meta & original source code to the rendered <pre>
+            hast.properties["data-meta"] = this.options.meta?.__raw;
+            hast.properties["data-code"] = this.source;
+          },
+        },
+        transformerMetaHighlight(),
+      ],
+    },
+  },
+
 });
