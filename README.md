@@ -109,3 +109,10 @@ docker-compose up --build
 
 ## TODO
 - [ ] Add imprint (legal reasons)
+
+
+Generate initial favicon from here:
+https://notchtools.com/initial-profile-picture-generator
+
+and convert to svg
+https://www.adobe.com/express/feature/image/convert/svg

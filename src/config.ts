@@ -141,12 +141,12 @@ import {
       icon: "Linkedin",
       external: true,
     },
-    // {
-    //   title: "X",
-    //   url: "https://example.com",
-    //   icon: "X",
-    //   external: true,
-    // },
+    {
+      title: "X",
+      url: "https://x.com/bentannheimer",
+      icon: "X",
+      external: true,
+    },
     // {
     //   title: "Discord",
     //   url: "https://example.com",
