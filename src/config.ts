@@ -147,12 +147,6 @@ import {
       icon: "X",
       external: true,
     },
-    // {
-    //   title: "Discord",
-    //   url: "https://example.com",
-    //   icon: "Discord",
-    //   external: true,
-    // },
     {
       title: "buymeacoffee",
       url: "https://buymeacoffee.com/benjamintannheimer",
@@ -163,8 +157,7 @@ import {
   
   // ComponentContent =================================================================
   export const biography: string[] = [
-    "I'm a builder at heart. Whether it's coding up backend systems, experimenting with machine learning, or spinning up infrastructure in my homelab, I get a kick out of making things that actually work — and work well. Over the past few years, I've gone deep into dev, AI, and systems design, always chasing that feeling when a rough idea turns into a real, functioning tool.",
-    "This space is a snapshot of what I've been hacking on — projects, thoughts, workflows, and the occasional deep-dive blog post. I care about clarity, clean systems, and pushing my skills in the right direction, whether that's through quant dev, cloud-native infra, or something entirely unexpected.",
+    "This space is a snapshot of what I've been hacking on — projects, thoughts, workflows, and the occasional deep-dive blog post. I care about clarity, clean systems, and pushing my skills in the right direction, whether that's through fullstack dev, cloud-native infra, or something entirely unexpected.",
     "I'm open to internships and full-time roles. If you're building something ambitious and want someone who's thoughtful, technical, and not afraid to go deep, let's talk."
   ];
   
@@ -178,7 +171,7 @@ import {
       name: "TypeScript",
       image: "/technologies/TypeScript.jpg",
       type: TechnologyType.Language,
-    }
+    },
   ];
 
   export const hardware: Hardware[] = [
@@ -346,10 +339,10 @@ import {
         "Network technology; Server and storage systems; Databases and middleware; Automation and scripting; Monitoring and logging; Cyber security",
       ],
       technologies: [
-        { name: "RedHat" },
-        { name: "Cisco" },
-        { name: "Python" },
-        { name: "PowerShell" },
+        { name: "RedHat", type: TechnologyType.Vendor },
+        { name: "Cisco",  type: TechnologyType.Vendor },
+        { name: "Python",  type: TechnologyType.Language },
+        { name: "PowerShell",  type: TechnologyType.Scripting },
       ]
     },
     {
@@ -362,9 +355,9 @@ import {
       country: "Switzerland",
       description: ["Developing and delivering business web applications within the TYPO3 circle."],
       technologies: [
-        { name: "Typo3" },
-        { name: "PHP" },
-        { name: "Docker" },
+        { name: "Typo3",  type: TechnologyType.Framework },
+        { name: "PHP",  type: TechnologyType.Language },
+        { name: "Docker",  type: TechnologyType.DevOpsTool },
       ]
     },
     {
@@ -377,13 +370,13 @@ import {
       country: "Switzerland",
       description: ["During my Swisscom apprenticeship as a Way-Up EFZ Application Developer, I gained practical experience in software development, agile teamwork, and the telecommunications industry."],
       technologies: [
-        { name: "Next.js" },
-        { name: "Nest.js" },
-        { name: "FastAPI" },
-        { name: "MariaDB" },
-        { name: "MongoDB" },
-        { name: "MinIO" },
-        { name: "Docker" },
+        { name: "Next.js", type: TechnologyType.Framework },
+        { name: "Nest.js", type: TechnologyType.Framework },
+        { name: "FastAPI", type: TechnologyType.Framework },
+        { name: "MariaDB", type: TechnologyType.Database },
+        { name: "MongoDB", type: TechnologyType.Database },
+        { name: "MinIO", type: TechnologyType.Storage },
+        { name: "Docker", type: TechnologyType.DevOpsTool },
       ]
     }
   ];
@@ -603,16 +596,16 @@ import {
           "Shadcn/ui",
         ]
       },
-      {
-        title: "Next project",
-        description: "Something",
-        image: "/placeholder/no-image.jpg",
-        year: "2025",
-        url: "https://github.com/benjamintannheimer",
-        tech: [
-          "Python",
-        ]
-      },
+      // {
+      //   title: "Next project",
+      //   description: "Something",
+      //   image: "/placeholder/no-image.jpg",
+      //   year: "2025",
+      //   url: "https://github.com/benjamintannheimer",
+      //   tech: [
+      //     "Python",
+      //   ]
+      // },
     ],
   };
   

@@ -5,38 +5,43 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="border-t py-6 md:py-8 lg:py-10 mt-24">
-  <div class="container mx-auto px-4 flex flex-col items-center justify-between gap-6 sm:px-6 lg:px-8">
-    <div class="w-full flex flex-col items-center justify-between gap-6 lg:flex-row">
-      <p class="text-muted-foreground text-sm leading-loose lg:text-left flex items-center justify-center lg:justify-start gap-2">
-        <span id="local-time"></span> ©{currentYear} {identity.name}. All rights reserved.
-          <script>
-            const el = document.getElementById("local-time");
-            const now = new Date();
+  <div class="container mx-auto px-4 flex flex-col items-center gap-4 sm:px-6 lg:px-8">
+    <!-- Top row: Local time + copyright -->
+    <!-- <div class="text-muted-foreground text-sm leading-loose text-center flex flex-col items-center gap-2 lg:flex-row lg:justify-between lg:w-full">
+      <span id="local-time"></span>
+      <span>©{currentYear} {identity.name}. All rights reserved.</span>
+    </div> -->
 
-            // Format like: "17:42 (UTC+2)"
-            const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-            const offset = -now.getTimezoneOffset() / 60;
-            const sign = offset >= 0 ? "+" : "";
-            el!.textContent = `${time} (UTC${sign}${offset})`;
-          </script>
-      </p>
-
-      <p class="text-muted-foreground text-center text-sm leading-loose lg:text-right">
-        <a
-          href="https://github.com/benjamintannheimer/benjamintannheimer.com"
-          target="_blank"
-          rel="noreferrer"
-          class="font-medium underline underline-offset-4 hover:text-foreground transition-colors duration-200"
-        >Code</a>.
-        <a
-          href="/credits"
-          class="font-medium underline underline-offset-4 hover:text-foreground transition-colors duration-200"
-        >Credits</a>.
-        <a
-          href="/privacy"
-          class="font-medium underline underline-offset-4 hover:text-foreground transition-colors duration-200"
-        >Privacy</a>.
-      </p>
+    <!-- Bottom row: Links -->
+    <div class="text-muted-foreground text-sm leading-loose flex flex-wrap items-center justify-center gap-6">
+      <a
+        href="https://github.com/benjamintannheimer/benjamintannheimer.com"
+        target="_blank"
+        rel="noreferrer"
+        class="font-medium underline underline-offset-4 hover:text-foreground transition-colors duration-200"
+      >Code</a>
+      <a
+        href="/credits"
+        class="font-medium underline underline-offset-4 hover:text-foreground transition-colors duration-200"
+      >Credits</a>
+      <a
+        href="/privacy"
+        class="font-medium underline underline-offset-4 hover:text-foreground transition-colors duration-200"
+      >Privacy</a>
     </div>
   </div>
+
+  <!-- Local time script -->
+  <script>
+    const el = document.getElementById("local-time");
+    function updateTime() {
+      const now = new Date();
+      const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      const offset = -now.getTimezoneOffset() / 60;
+      const sign = offset >= 0 ? "+" : "";
+      if (el) el.textContent = `${time} (UTC${sign}${offset})`;
+    }
+    updateTime();
+    setInterval(updateTime, 60000); // auto-update every minute
+  </script>
 </footer>

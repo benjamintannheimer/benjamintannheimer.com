@@ -27,18 +27,22 @@ export type BaseLink = {
     Library = "Library",
     RuntimePlatform = "Runtime / Platform",
     Database = "Database",
+    Storage = "Storage",
     ORMQueryTool = "ORM / Query Tool",
     CloudPlatform = "Cloud Platform",
     DevOpsTool = "DevOps Tool",
     VersionControl = "Version Control",
     Testing = "Testing",
     Security = "Security",
+    Scripting = "Scripting",
     APIIntegration = "API / Integration",
     DataAI = "Data & AI",
     Visualization = "Visualization",
     IDEEditor = "IDE / Editor",
     Collaboration = "Collaboration",
     OtherTool = "Other Tool",
+    OperatingSystem = "Operating System",
+    Vendor = "Vendor"
   }
 
 
