@@ -1,0 +1,30 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import { aboutPageContent } from "@/config";
+import Connect from "@/components/content/Connect.astro";
+import Certifications from "@/components/content/about/Certifications.astro";
+import Recognition from "@/components/content/about/Recognition.astro";
+import Equipment from "@/components/content/about/Equipment.astro";
+import Biography from "@/components/content/about/Biography.astro";
+import Friends from "@/components/content/about/Friends.astro";
+import Principles from "@/components/content/about/Principles.astro";
+import Interests from "@/components/content/about/Interests.astro";
+import Numbers from "@/components/content/about/Numbers.astro";
+
+const { seo, page } = aboutPageContent;
+---
+
+<PageLayout 
+  seo={seo} 
+  page={page}
+>
+  <Biography/>
+  <Numbers />
+  <!-- <Recognition /> -->
+  <Certifications />
+  <!-- <Principles /> -->
+  <!-- <Interests /> -->
+  <!-- <Friends /> -->
+  <Equipment />
+  <Connect />
+</PageLayout>

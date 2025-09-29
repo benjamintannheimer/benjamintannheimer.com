@@ -1,0 +1,12 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import { privacyPageContent } from "@/config";
+
+const { seo, page, statement } = privacyPageContent;
+---
+
+<PageLayout seo={seo} page={page}>
+  <div class="text-lg space-y-4">
+    <div class="text-lg space-y-4" set:html={statement} />
+  </div>
+</PageLayout>

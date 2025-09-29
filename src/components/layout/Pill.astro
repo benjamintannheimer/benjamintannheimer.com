@@ -1,0 +1,37 @@
+---
+interface Props {
+    text: string;
+    className?: string;
+    padding?: boolean;
+    hoverHighlight?: boolean;
+    href?: string;
+    target?: string;
+    rel?: string;
+}
+
+const {
+    text,
+    className = "",
+    padding = true,
+    hoverHighlight = false,
+    href,
+    target,
+    rel,
+} = Astro.props;
+
+const baseClasses = `bg-background text-foreground text-xs font-medium me-0.25 rounded-sm border`;
+const paddingClass = padding ? "px-2 py-1" : "";
+const hoverClass = hoverHighlight ? "hover:bg-muted transition-colors" : "";
+const fullClass = `${baseClasses} ${paddingClass} ${hoverClass} ${className}`.trim();
+---
+<div class="flex flex-wrap gap-2">
+  {href ? (
+    <a href={href} class={fullClass} target={target} rel={rel}>
+      {text}
+    </a>
+  ) : (
+    <span class={fullClass}>
+      {text}
+    </span>
+  )}
+</div>

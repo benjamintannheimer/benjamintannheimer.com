@@ -1,0 +1,36 @@
+---
+interface Props {
+  className?: string;
+  padding?: boolean;
+  hoverHighlight?: boolean;
+  bgImage?: string;
+  href?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  className = "",
+  padding = true,
+  hoverHighlight = false, 
+  href,
+  target,
+  rel,
+  bgImage,
+} = Astro.props;
+---
+
+<div
+  class={`rounded-3xl shadow-sm ${padding ? "p-6" : ""} border bg-background ${
+    hoverHighlight ? "transition-all duration-300 hover:ring-2 hover:ring-border-foreground" : ""
+  } ${className}`}
+  style={bgImage ? `background-image: url('${bgImage}'); background-size: cover; background-position: center;` : ""}
+>
+  {href ? (
+    <a class="w-full" href={href} target={target} rel={rel}>
+      <slot />
+    </a>
+  ) : (
+    <slot />
+  )}
+</div>

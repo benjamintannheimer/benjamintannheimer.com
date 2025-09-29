@@ -1,6 +1,6 @@
-# Astro Shadcn UI Template
+# Blog Template with Astro Shadcn UI Template
 
-This template helps you build apps with Astro, Tailwind CSS, and Shadcn UI.
+This template helps you build a blog with Astro, Tailwind CSS, and Shadcn UI.
 
 ## Getting Started
 
@@ -40,3 +40,79 @@ Feel free to explore the various components and enhance your application with Sh
 ## License
 
 Licensed under the [MIT License](LICENSE).
+
+
+---
+
+# Navbar
+
+- Home (as url of blog)
+- About
+- Experience
+- Projects
+- Blogs
+- Contact
+
+# Home
+
+- Profile Card
+- Tech I use
+- Experience
+- Education
+- Projects
+- Blogs
+- Connect
+===============
+- Experience
+- Education
+- Certifications
+- Testimonials
+- Connect
+
+# About me
+
+- Biography
+- Honors and Awards
+- Certifications
+- Voluntary work
+===============
+- Biography
+- Resume CV / Download
+- Values and Mission
+- Interests Software
+- What I use
+  - Web Dev Setup
+  - Hardware
+  - Software
+- Skills and Technologies
+- Connect
+
+# Projects
+
+![alt text](image.png)
+
+- top 3
+- others
+
+# Blog
+
+- top 3
+- others
+
+# Footer
+
+
+# Run docker
+
+docker-compose up --build
+
+
+## TODO
+- [ ] Add imprint (legal reasons)
+
+
+Generate initial favicon from here:
+https://notchtools.com/initial-profile-picture-generator
+
+and convert to svg
+https://www.adobe.com/express/feature/image/convert/svg

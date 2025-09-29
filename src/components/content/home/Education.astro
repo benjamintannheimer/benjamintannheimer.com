@@ -1,0 +1,42 @@
+---
+import Header from '@/components/page/Header.astro';
+import BentoBox from '@/components/layout/BentoBox.astro';
+import { education } from "@/config";
+import { Link } from '@/components/Link';
+---
+
+<section id="education">
+  <Header title="Education" subtitle="My academic journey." />
+  <div class="space-y-6">
+    {education.map(edu => (
+      <BentoBox className="mb-6" padding={true}>
+        <div>
+          <div class="flex items-center space-x-4">
+            <div class="hidden sm:block min-w-10">
+              <a href={edu.url} target="_blank" rel="noopener noreferrer">
+                <img src={edu.logo} alt={`${edu.logo} Logo`} class="w-10 h-10 rounded-lg" />
+              </a>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold">{edu.degree}
+                  <span>
+                    <Link
+                      href={edu.url}
+                      className="font-medium underline-offset-4 hover:underline hover:text-foreground transition-colors duration-200"
+                      target="_blank"
+                    >
+                      @{edu.title}
+                    </Link>
+                  </span>
+                </h3>
+                <p class="text-sm text-muted-foreground">{edu.country}, {edu.date}</p>
+            </div>
+          </div>
+          {edu.description.map(paragraph => (
+            <p class="mt-2">{paragraph}</p>
+          ))}
+        </div>
+      </BentoBox>
+    ))}
+  </div>
+</section>

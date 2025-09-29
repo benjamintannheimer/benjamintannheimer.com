@@ -1,26 +1,47 @@
 ---
-import HeadSEO from "@/components/HeadSEO.astro";
-import Footer from "@/components/Footer.astro";
-import Header from "@/components/Header.astro";
+import HeadSEO from "@/components/layout/HeadSEO.astro";
+import Footer from "@/components/layout/Footer.astro";
+import Header from "@/components/layout/Header.astro";
+import type { SEOInfo } from "../types/config";
 
 interface Props {
-  title?: string | undefined;
-  description?: string | undefined;
-  ogImage?: URL | undefined;
+  seo: SEOInfo
 }
 
-const { title, description, ogImage } = Astro.props;
+const { seo } = Astro.props;
+const imgUrl = new URL(`${Astro.site}${seo.image}`);
 ---
+
+<script is:inline>
+	const getThemePreference = () => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme');
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	};
+	const isDark = getThemePreference() === 'dark';
+	document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+ 
+	if (typeof localStorage !== 'undefined') {
+		const observer = new MutationObserver(() => {
+			const isDark = document.documentElement.classList.contains('dark');
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+		});
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+	}
+</script>
 
 <html lang="en">
   <head>
-    <HeadSEO title={title} description={description} ogImage={ogImage} />
+    <HeadSEO title={seo.title} description={seo.description} image={imgUrl} />
   </head>
   <body class="bg-background min-h-screen font-sans antialiased">
-    <div class="relative flex min-h-screen flex-col">
+	<div class="relative flex min-h-screen flex-col" data-pagefind-body>
       <Header />
       <main class="flex-auto">
-        <slot />
+        <section class="mt-10 max-w-6xl mx-auto xs:px-0 sm:px-6">
+			<slot />
+		</section>
       </main>
       <Footer />
     </div>

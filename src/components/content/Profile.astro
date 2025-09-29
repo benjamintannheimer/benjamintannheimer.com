@@ -1,0 +1,30 @@
+---
+import { identity, position } from '@/config';
+import { buttonVariants } from "@/components/ui/button";
+import BentoBox from '@/components/layout/BentoBox.astro';
+import SocialLinks from '@/components/content/SocialLinks.astro';
+---
+<section class="mt-8">
+  <BentoBox className="p-6">
+    <div class="flex flex-col sm:flex-row items-center sm:space-x-6">
+      {/* Avatar */}
+      <div class="flex-shrink-0">
+        <img 
+          src={identity.avatar} 
+          alt={`Avatar of ${identity.name}`} 
+          class="w-32 h-32 rounded-lg border shadow-sm" 
+        />
+      </div>
+      {/* Details */}
+      <div class="mt-4 sm:mt-0 text-center sm:text-left">
+        <h2 class="text-2xl font-bold text-foreground">{identity.name}</h2>
+        <p class="mt-2 text-sm text-muted-foreground">
+          Currently working at <span class="text-primary">{position.company.name}</span> as <span class="text-primary">{position.jobTitle}</span> in <span class="text-primary">{position.company.location}</span>
+        </p>
+        <div class="mt-4">
+          <SocialLinks />
+        </div>
+      </div>
+    </div>
+  </BentoBox>
+</section>

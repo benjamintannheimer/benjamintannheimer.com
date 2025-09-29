@@ -1,0 +1,107 @@
+---
+import { icons, AlertTriangle } from 'lucide-react';
+import PageLayout from "@/layouts/PageLayout.astro";
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
+import {
+  TypographyLI,
+	TypographyBlockquote,
+	TypographyH1,
+	TypographyH2,
+	TypographyH3,
+	TypographyH4,
+	TypographyOL,
+	TypographyP,
+	TypographyUL,
+} from "@/components/blog/Typography";
+import BlogImage from "@/components/blog/BlogImage.astro";
+import { Link } from "@/components/Link";
+import { identity } from "@/config";
+import { customIconMap } from "@/lib/customIcons.ts";
+import Pill from "@/components/layout/Pill.astro";
+
+
+export async function getStaticPaths() {
+  const homelabs = await getCollection("homelabs");
+  return homelabs.map(homelab => ({
+    params: { slug: homelab.data.slug },
+    props: { homelab },
+  }));
+}
+
+const { homelab } = Astro.props;
+
+const { Content } = await render(homelab);
+---
+
+<PageLayout
+  seo={{
+    title: homelab.data.title,
+    description: homelab.data.description,
+    image: homelab.data.slug,
+  }}
+  page={{
+    name: homelab.data.slug,
+    title: homelab.data.title,
+    subtitle: homelab.data.description,
+  }}
+  backlink={{
+    title: "Back to homelabs",
+    url: "/homelab"
+  }}
+>
+  <article class="prose prose-invert mb-24 text-foreground">
+    <Content
+      components={{
+        h1: TypographyH1,
+        h2: TypographyH2,
+        h3: TypographyH3,
+        h4: TypographyH4,
+        p: TypographyP,
+        blockquote: TypographyBlockquote,
+        ul: TypographyUL,
+        li: TypographyLI,
+        ol: TypographyOL,
+        a: Link,
+        BlogImage,
+      }}
+    />
+    <div class="flex items-center gap-4 mt-8 mb-6 p-4 border rounded-lg">
+      <Image
+        src={homelab.data.author?.image.url || identity.avatar}
+        alt={homelab.data.author?.image.alt || identity.name}
+        width={64}
+        height={64}
+        class="w-16 h-16 rounded-full object-cover border-2"
+      />
+      <div class="flex flex-col">
+        <p class="text-lg font-semibold text-foreground">{homelab.data.author?.name || identity.name}</p>
+        <p class="text-xs text-gray-500 mt-1">
+          Published on {new Date(homelab.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+        <div class="flex items-center gap-3 mt-2">
+          {homelab.data.author && homelab.data.author.socialLinks.map(({ url, icon, title }) => {
+            const LucideIcon =
+              customIconMap[icon] ||
+              icons[icon as keyof typeof icons] ||
+              AlertTriangle;     
+       
+            if (!icons[icon as keyof typeof icons]) {
+              console.warn(`⚠️ Icon "${icon}" not found in lucide-react. Using fallback.`);
+            }
+
+            return (
+              <a
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={title}
+                class="text-gray-500 hover:text-primary transition-colors duration-200"
+              >
+                <LucideIcon className="h-5 w-5" />
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </div>    

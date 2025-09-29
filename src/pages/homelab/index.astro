@@ -1,0 +1,42 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import { homelabPageContent } from "@/config";
+import BentoBox from "@/components/layout/BentoBox.astro";
+import { getHomelabs } from "@/lib/getHomelabs";
+
+const homelabs = await getHomelabs();
+const { seo, page } = homelabPageContent;
+const toDateStr = (date: Date) => date.toLocaleDateString("de-CH", { year: "numeric", month: "2-digit", day: "2-digit" });
+
+---
+
+<PageLayout seo={seo} page={page}>
+  <!-- homelab iteration Rows -->
+  <div class="flex flex-col space-y-3">
+    {homelabs.map((homelab) => {
+      return (
+        <BentoBox
+          href={`/homelab/${homelab.data.slug}`}
+          className="flex flex-col sm:flex-row items-stretch border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden cursor-pointer"
+          padding={false}
+          hoverHighlight
+        >
+          {/* Text Content */}
+          <div class="flex flex-col justify-between p-3 bg-background flex-grow">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4">
+              {/* Date */}
+              <span class="text-lg text-gray-600 dark:text-gray-400">
+                {toDateStr(homelab.data.pubDate)}
+              </span>
+
+              {/* Title */}
+              <span class="text-lg font-semibold text-foreground">
+                {homelab.data.title}
+              </span>
+            </div>
+          </div>
+        </BentoBox>
+      );
+    })}
+  </div>
+</PageLayout>

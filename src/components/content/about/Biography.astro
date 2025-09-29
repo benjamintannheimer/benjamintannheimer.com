@@ -1,0 +1,14 @@
+---
+import BentoBox from "@/components/layout/BentoBox.astro";
+import { biography } from "@/config";
+---
+
+<section id="biography">
+  <BentoBox className="max-w-6xl">
+    <div>
+      {biography.map(paragraph => (
+        <p class="mb-4">{paragraph}</p>
+      ))}
+    </div>
+  </BentoBox>
+</section>

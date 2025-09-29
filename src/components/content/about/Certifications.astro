@@ -1,0 +1,43 @@
+---
+import BentoBox from '@/components/layout/BentoBox.astro';
+import { certifications } from '@/config';
+import Header from '@/components/page/Header.astro';
+---
+
+<Header title="Certifications" subtitle="Check out my certifications." />
+
+<section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mt-8">
+  {certifications.map((cert) => {
+    const isPlanned = "plannedDate" in cert || !("date" in cert);
+    const displayDate = isPlanned
+      ? cert.plannedDate
+        ? `Planned for ${cert.plannedDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`
+        : "Soon"
+      : cert.date?.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+    return (
+      <BentoBox className="p-0 overflow-hidden rounded-xl group relative aspect-square" padding={false} hoverHighlight={true}>
+        <a 
+          href={cert.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="block w-full h-full"
+        >
+          <img 
+            src={cert.image} 
+            alt={cert.title} 
+            loading="lazy" 
+            class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105" 
+          />
+          {/* Improved gradient overlay */}
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <h2 class="text-xl font-semibold text-white">{cert.title}</h2>
+            <p class="text-sm text-white">{displayDate}</p>
+          </div>
+        </a>
+      </BentoBox>
+    );
+  })}
+</section>

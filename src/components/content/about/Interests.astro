@@ -1,0 +1,21 @@
+---
+import BentoBox from '@/components/layout/BentoBox.astro';
+import Header from '@/components/page/Header.astro';
+import { interests } from "@/config";
+---
+
+<Header title="Interests" subtitle="Other Things I Enjoy Doing"></Header>
+<section id="beyond">
+  <div class="max-w-6xl">
+    <div class="mb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {interests.map(item => (
+        <BentoBox className="aspect-square">
+          <div class="flex flex-col justify-center h-full">
+            <span class="font-bold text-xl">{item.title}</span>
+            <span class="text-sm text-muted-foreground">{item.details}</span>
+          </div>
+        </BentoBox>
+      ))}
+    </div>
+  </div>
+</section>

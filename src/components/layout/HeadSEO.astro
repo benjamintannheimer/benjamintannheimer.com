@@ -5,16 +5,17 @@ import "@/styles/fonts.css";
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
-  ogImage?: URL | undefined;
+  image?: URL | undefined;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-if (Astro.props.ogImage === undefined) {
-  Astro.props.ogImage = new URL("og-image.png", canonicalURL);
+if (Astro.props.image === undefined) {
+  Astro.props.image = new URL("placeholder/no-image.jpg", canonicalURL);
 }
+console.log(`${Astro.site}/favicon.svg`)
 
-const { title, description, ogImage } = Astro.props;
+const { title, description, image } = Astro.props;
 ---
 
 <meta charset="utf-8" />
@@ -22,6 +23,7 @@ const { title, description, ogImage } = Astro.props;
 <meta name="googlebot" content="index, follow" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
+<link rel="sitemap" href="/sitemap-index.xml">
 <link rel="canonical" href={canonicalURL} />
 <link
   rel="shortcut icon"
@@ -36,10 +38,10 @@ const { title, description, ogImage } = Astro.props;
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={ogImage} />
+<meta property="og:image" content={image} />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={ogImage} />
+<meta property="twitter:image" content={image} />

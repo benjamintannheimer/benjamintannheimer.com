@@ -1,0 +1,40 @@
+---
+import BentoBox from '@/components/layout/BentoBox.astro';
+import Header from '@/components/page/Header.astro';
+
+const principles = [
+  { title: 'Integrity', details: 'Acting with honesty and transparency in every situation.' },
+  { title: 'Creativity', details: 'Embracing innovative ideas and finding unique solutions.' },
+  { title: 'Lifelong Learning', details: 'Continuously expanding my knowledge and skills.' },
+  { title: 'Collaboration', details: 'Valuing teamwork and diverse perspectives to achieve common goals.' },
+  { title: 'Empathy', details: 'Understanding and appreciating the experiences of others.' },
+  { title: 'Innovation', details: 'Constantly challenging the status quo to drive progress.' },
+];
+---
+
+<Header title="Principles" subtitle="Values That Define Me"></Header>
+
+<section id="principles">
+  <div class="max-w-6xl">
+    <div class="mb-12">
+      <BentoBox padding>
+        <p class="mb-4 text-lg">
+          Principles are the foundation of everything I do. They serve as a compass, guiding my decisions, shaping my interactions, and inspiring me to strive for excellence. Below are the core values that define who I am and how I approach both personal and professional challenges.
+        </p>
+        <ul>
+          {principles.map(item => (
+            <li>
+              <div class="flex flex-col">
+                <span class="font-bold text-lg">{item.title}</span>
+                <span class="text-sm text-muted-foreground">{item.details}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-lg">
+          These principles are more than just words—they are commitments that guide my actions every day. By staying true to these values, I aim to make a positive impact on the people I work with and the projects I take on.
+        </p>
+      </BentoBox>
+    </div>
+  </div>
+</section>

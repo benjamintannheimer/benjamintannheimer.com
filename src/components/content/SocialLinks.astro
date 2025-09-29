@@ -1,0 +1,30 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import { icons, AlertTriangle, type LucideProps } from "lucide-react";
+import { socialLinks } from "@/config";
+import { customIconMap } from "@/lib/customIcons.ts";
+---
+{socialLinks.map(({ url, icon, title }) => {
+  // Prefer custom icon if available, then Lucide, then fallback
+  const LucideIcon =
+    customIconMap[icon] ||
+    icons[icon as keyof typeof icons] ||
+    AlertTriangle;
+
+
+  if (!customIconMap[icon] && !icons[icon as keyof typeof icons]) {
+    console.warn(`WARN: Icon "${icon}" not found in lucide-react or customIconMap. Using fallback.`);
+  }
+
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      class={`${buttonVariants({ variant: "outline" })} m-1 transition-all duration-300 hover:ring-2 hover:ring-gray-600`}
+      aria-label={title}
+    >
+      <LucideIcon className="h-5 w-5" />
+    </a>
+  );
+})}

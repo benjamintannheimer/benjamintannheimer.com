@@ -1,0 +1,22 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import { creditsPageContent } from "@/config";
+
+const { seo, page, description, creditsList } = creditsPageContent;
+---
+
+<PageLayout seo={seo} page={page}>
+  <div class="text-lg space-y-4">
+    <p>{description}</p>
+    <p>{creditsList.intro}</p>
+    <ul class="list-disc pl-6 space-y-1">
+      {creditsList.items.map((credit) => (
+        <li>
+          <strong>{credit.name}</strong> - {credit.role}
+          {credit.comment && " - " + credit.comment}
+        </li>
+      ))}
+    </ul>
+    <p>{creditsList.thankYou}</p>
+  </div>
+</PageLayout>
