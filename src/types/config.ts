@@ -21,15 +21,35 @@ export type BaseLink = {
     jobTitle: string;
   }
 
+  export enum TechnologyType {
+    Language = "Language",
+    Framework = "Framework",
+    Library = "Library",
+    RuntimePlatform = "Runtime / Platform",
+    Database = "Database",
+    ORMQueryTool = "ORM / Query Tool",
+    CloudPlatform = "Cloud Platform",
+    DevOpsTool = "DevOps Tool",
+    VersionControl = "Version Control",
+    Testing = "Testing",
+    Security = "Security",
+    APIIntegration = "API / Integration",
+    DataAI = "Data & AI",
+    Visualization = "Visualization",
+    IDEEditor = "IDE / Editor",
+    Collaboration = "Collaboration",
+    OtherTool = "Other Tool",
+  }
+
+
   export type Technology = {
     name: string;
     color?: string;
     image?: string;
+    type: TechnologyType;
   }
 
   export type Software = Partial<BaseLink> & {
-    pricing: string;
-    usage?: string;
     details?: string;
   }
 
@@ -101,9 +121,6 @@ export type BaseLink = {
     avatar: string;
     blogUrl: string;
     email: string;
-    utcDiff: number;
-    countryCode: string;
-    country: string;
   };
   
   export type SEOInfo = {

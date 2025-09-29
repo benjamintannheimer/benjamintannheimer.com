@@ -1,39 +1,41 @@
 import { makeSEOTitle } from "./lib/utils";
-import type {
-    NavBarLink,
-    SocialLink,
-    Position,
-    Identity,
-    Technology,
-    Friend,
-    Certification,
-    Experience,
-    Education,
-    Testimonial,
-    Figure,
-    Recognition,
-    Hardware,
-    Software,
-    AboutPageContent,
-    ProjectPageContent,
-    BlogPageContent,
-    CreditsPageContent,
-    PrivacyPageContent,
-    ContactPageContent,
-    NotFoundPageContent,
-    HomePageContent,
-    Interest,
-    HomelabPageContent,
+import {
+    type NavBarLink,
+    type SocialLink,
+    type Position,
+    type Identity,
+    type Technology,
+    type Friend,
+    type Certification,
+    type Experience,
+    type Education,
+    type Testimonial,
+    type Figure,
+    type Recognition,
+    type Hardware,
+    type Software,
+    type Interest,
+    // PageContent
+    type AboutPageContent,
+    type ProjectPageContent,
+    type BlogPageContent,
+    type CreditsPageContent,
+    type PrivacyPageContent,
+    type ContactPageContent,
+    type NotFoundPageContent,
+    type HomePageContent,
+    type HomelabPageContent,
+    TechnologyType,
   } from "@/types/config";
 
   // Common ===========================================================================
   export const position: Position = {
     company: {
-      logo: "/companylogo.jpg",
+      logo: "/experiences/swissarmedforces.png",
       name: "Swiss Armed Forces",
       location: "Berne, Switzerland",
     },
-    jobTitle: "ICT Systemspecialist I",
+    jobTitle: "ICT Systemspecialist",
     title: "Swiss Armed Forces",
     url: "https://www.vtg.admin.ch/en",
     external: true
@@ -44,9 +46,6 @@ import type {
     avatar: "/common/avatar.png",
     blogUrl: "benjamintannheimer.com",
     email: "benjamin.tannheimer@proton.com",
-    utcDiff: 1,
-    countryCode: "CH", // use the two letter iso code
-    country: "Switzerland",
   };
 
   export const navBarLinks: NavBarLink[] = [
@@ -74,17 +73,24 @@ import type {
   
   export const friends: Friend[] = [
     {
-      description: "The web framework for content-driven websites",
+      description: "The web framework for content",
       image: "placeholder/no-image.jpg",
       title: "Astro",
       url: "https://astro.build",
       external: true,
     },
     {
-      description: "Beautifully designed components built using Radix UI and Tailwind CSS",
+      description: "Beautifully designed components",
       image: "placeholder/no-image.jpg",
       title: "ShadCN",
       url: "https://shadcn.com",
+      external: true,
+    },
+    {
+      description: "Want to be added? Contact me.",
+      image: "placeholder/avatar.jpg",
+      title: "You",
+      url: "https://example.com",
       external: true,
     }
   ];
@@ -106,15 +112,27 @@ import type {
       external: false,
     },
     {
+      title: "Mail",
+      url: "mailto:benjamin.tannheimer@proton.me",
+      icon: "Mail",
+      external: true,
+    },
+    {
+      title: "Phone",
+      url: "tel:+41782472198",
+      icon: "Phone",
+      external: true,
+    },
+    {
       title: "GitHub",
       url: "https://github.com/benjamintannheimer",
       icon: "Github",
       external: true,
     },
     {
-      title: "Mail",
-      url: "mailto:benjamintannheimer [at] protonmail.com",
-      icon: "Mail",
+      title: "Dotfiles",
+      url: "https://github.com/benjamintannheimer/dotfiles",
+      icon: "Keyboard",
       external: true,
     },
     {
@@ -153,83 +171,125 @@ import type {
   export const technologies: Technology[] = [
     {
       name: "JavaScript",
-      image: "/JavaScript-logo.png",
+      image: "/technologies/JavaScript.png",
+      type: TechnologyType.Language,
     },
     {
-      name: "JavaScript",
-      image: "/JavaScript-logo.png",
+      name: "TypeScript",
+      image: "/technologies/TypeScript.jpg",
+      type: TechnologyType.Language,
     }
   ];
 
   export const hardware: Hardware[] = [
     {
-      title: "MacBook Pro 2021",
-      // url: "https://affiliate.example.com/macbookpro2021",
-      // external: true,
-      // usage: "Work",
-      details: "14-inch, Apple M1 Pro with 10‑Core CPU, 16‑Core GPU and 16‑Core Neural Engine, 32 GB RAM, 512 GB SSD, QWERTY = English (International)"
+      title: "HP EliteBook 850 G7 (Work)",
+      details: '15.60", Intel Core i7-10710U, 32 GB, 1000 GB, CH'
     },
     {
-      title: "Backup MacBook Pro 2015",
-      url: "https://affiliate.example.com/macbookpro2015",
-      external: true,
-      usage: "Backup",
-      details: "13-inch, 2.7 GHz Intel Core i5, 16 GB RAM, 256 GB SSD, QWERTY = English (International)"
-    },
-    {
-      title: "Mobile Laptop Stand",
-      url: "https://affiliate.example.com/mobile-laptop-stand",
-      external: true,
-      usage: "Ergonomics",
-      details: ""
+      title: "ThinkPads (Private)",
+      details: "Various models"
     },
     {
       title: "Trackpad and Keyboard",
-      url: "https://affiliate.example.com/trackpad-keyboard",
+      url: "https://www.digitec.ch/en/s1/product/lenovo-thinkpad-trackpoint-keyboard-ii-us-wireless-keyboard-17487598",
       external: true,
-      usage: "Input",
-      details: ""
+      details: "Input",
     },
     {
-      title: "Headphones: Sennheiser Pro Audio Professional HD 25",
-      url: "https://affiliate.example.com/sennheiser-hd25",
+      title: "Headphones: HyperX Cloud 2",
+      url: "https://www.digitec.ch/en/s1/product/hyperx-cloud-ii-cable-gaming-headset-3517140",
       external: true,
-      usage: "Audio",
-      details: ""
+      details: "Audio",
     },
     {
-      title: "Display: Dell UltraSharp 32 4k UHD",
-      url: "https://affiliate.example.com/dell-ultrasharp-32",
+      title: "Display: HP X34",
+      url: "https://www.digitec.ch/en/s1/product/hp-x34-3440-x-1440-pixels-34-monitor-16615682",
       external: true,
-      usage: "Display",
-      details: ""
+      details: "Display",
     },
     {
-      title: "Microphone: Blue Yeti USB Microphone",
-      url: "https://affiliate.example.com/blue-yeti",
+      title: "Monitor arm: Ergotron LX Dual Stacking Arm",
+      url: "https://www.digitec.ch/en/s1/product/ergotron-lx-dual-stacking-arm-table-40-monitor-mount-21282933",
       external: true,
-      usage: "Recording",
-      details: ""
+      details: "Monitor arm",
+    },
+    {
+      title: "Microphone: HyperX QuadCast",
+      url: "https://www.digitec.ch/en/s1/product/hyperx-quadcast-microphones-10714120",
+      external: true,
+      details: "Recording",
     }
   ];
   
   export const software: Software[] = [
     {
-      title: "Fastmail",
-      // url: "https://affiliate.example.com/fastmail",
-      // external: true,
-      pricing: "PAID",
-      usage: "Email",
-      // details: ""
+      title: "Proton",
+      url: "https://pr.tn/ref/PDV27SPPMSBG",
+      external: true,
+      details: "Email, storage, calendar, password management"
     },
     {
-      title: "Digital Ocean",
-      url: "https://affiliate.example.com/digitalocean",
+      title: "JetBrains",
+      url: "https://jetbrains.com",
       external: true,
-      pricing: "PAID",
-      usage: "Hosting",
-      // details: ""
+      details: "Various IDEs for Software Development"
     },
+    {
+      title: "Bookmer",
+      url: "https://bookmer.com/home",
+      external: true,
+      details: "Bookmarks"
+    },
+    {
+      title: "Notesnook",
+      url: "https://notesnook.com/",
+      external: true,
+      details: "Notetaking"
+    },
+    {
+      title: "Cryptpad",
+      url: "https://cryptpad.fr",
+      external: true,
+      details: "Cloud document collaboration suite"
+    },
+    {
+      title: "ChatGPT",
+      url: "https://chatgpt.com",
+      external: true,
+      details: "Generative artificial intelligence chatbot "
+    },
+    // {
+    //   title: "Termius",
+    //   url: "https://affiliate.example.com/fastmail",
+    //   external: true,
+    //   details: "SSH connection manager"
+    // },
+    {
+      title: "SoBrief",
+      url: "https://sobrief.com/?via=benjamin-tannheimer",
+      external: true,
+      details: "Book summaries"
+    },
+    // {
+    //   title: "",
+    //   url: "",
+    //   external: true,
+    //   details: ""
+    // },
+    {
+      title: "getcracked",
+      url: "https://getcracked.io",
+      external: true,
+      details: "Coding questions - 10% with the code MG4URN6A"
+    },
+    {
+      title: "Leetcode",
+      url: "https://leetcode.com/",
+      external: true,
+      details: "Coding questions"
+    },
+
     // {
     //   title: "tmux",
     //   url: "https://affiliate.example.com/fastmail",
@@ -244,20 +304,6 @@ import type {
     //   pricing: "FREE",
     //   usage: "Terminal"
     // },
-    {
-      title: "Termius",
-      url: "https://affiliate.example.com/fastmail",
-      external: true,
-      pricing: "PAID",
-      usage: "SSH Connections"
-    },
-    // {
-    //   title: "",
-    //   url: "https://affiliate.example.com/fastmail",
-    //   external: true,
-    //   pricing: "FREE",
-    //   usage: ""
-    // },
   ];  
 
   export const certifications: Certification[] = [
@@ -269,44 +315,48 @@ import type {
       url: "https://www.credly.com/badges/b6e3d75e-cb18-4729-b597-706451da7249/public_url",
       external: true,
     },
-    {
-      image: "/certifications/cisco.jpg",
-      plannedDate: new Date("10.10.2025"),
-      title: "CCNA",
-      url: "https://example.com",
-      external: true,
-    },
-    {
-      image: "/certifications/itil-v4-foundation.png",
-      title: "ITIL4F",
-      plannedDate: new Date("10.10.2025"),
-      url: "https://example.com",
-      external: true,
-    }
+    // {
+    //   image: "/certifications/cisco.jpg",
+    //   plannedDate: new Date("10.10.2025"),
+    //   title: "CCNA",
+    //   url: "https://example.com",
+    //   external: true,
+    // },
+    // {
+    //   image: "/certifications/itil-v4-foundation.png",
+    //   title: "ITIL4F",
+    //   plannedDate: new Date("10.10.2025"),
+    //   url: "https://example.com",
+    //   external: true,
+    // }
   ]
 
   export const experiences: Experience[] = [
     {
       title: "ICT System Specialist I",
-      url: "https://example.com",
+      url: "https://jobs.admin.ch/offene-stellen/Lehrgang-als-ICT-Systemspezialist-in-Junior-an-der-ICT-Warrior-Academy/e2eb79bf-13b6-40c4-8f4d-bb982ed8541e",
       external: true,
-      logo: "/swissarmedforces.png",
+      logo: "/experiences/swissarmedforces.png",
       company: "Swiss Armed Forces",
       date: "Nov 2024 - Nov 2025",
       current: true,
       country: "Switzerland",
-      description: ["Developing intuitive UIs with Astro and Tailwind CSS while collaborating on design and user experience improvements."],
+      description: [
+        "Further training to become an ICT Systems Specialist at the ICT Warrior Academy with the following technical specializations:",
+        "Network technology; Server and storage systems; Databases and middleware; Automation and scripting; Monitoring and logging; Cyber security",
+      ],
       technologies: [
         { name: "RedHat" },
         { name: "Cisco" },
-        { name: "Django" },
+        { name: "Python" },
+        { name: "PowerShell" },
       ]
     },
     {
       title: "Frontend Developer",
-      url: "https://example.com",
+      url: "https://intersim.ch",
       external: true,
-      logo: "/intersim.png",
+      logo: "/experiences/intersim.png",
       company: "Intersim AG",
       date: "Aug 2024 - Oct 2024",
       country: "Switzerland",
@@ -319,9 +369,9 @@ import type {
     },
     {
       title: "Apprentice Application Developer Way-Up EFZ",
-      url: "https://example.com",
+      url: "https://swisscom.ch",
       external: true,
-      logo: "/swisscom.jpg",
+      logo: "/experiences/swisscom.jpg",
       company: "Swisscom (Switzerland) AG",
       date: "Aug 2022 - Jul 2024",
       country: "Switzerland",
@@ -343,7 +393,7 @@ import type {
       title: "Gymnasium Neufeld",
       url: "https://gymneufeld.ch",
       external: true,
-      logo: "/gymneufeld.png",
+      logo: "/education/gymneufeld.png",
       degree: "Swiss Matura",
       country: "Switzerland",
       date: "Aug 2018 - Aug 2022",
@@ -402,14 +452,14 @@ import type {
       figure:  ~~((Date.now() - +new Date('2003-07-03')) / (31557600000)), 
       description: "years old", 
     },
-    { 
-      figure: 1595, 
-      description: "CHF earned through bug bounty", 
-      lastUpdated: new Date("03.07.2025"),
-      title: "something",
-      url: "https://example.com",
-      external: true,
-    },
+    // { 
+    //   figure: 1595, 
+    //   description: "CHF earned through bug bounty", 
+    //   lastUpdated: new Date("03.07.2025"),
+    //   title: "something",
+    //   url: "https://example.com",
+    //   external: true,
+    // },
   ];
 
   export const recognitions: Recognition[] = [
@@ -445,7 +495,7 @@ import type {
     },
     page: {
       name: "home",
-      title: "Hi, I'm Ben. I'm a developer.",
+      title: "Hi, I'm Ben, a Software Engineer.",
       subtitle: "I like building stuff."
     },
     role: "Student & Software Developer",
@@ -551,6 +601,16 @@ import type {
           "React",
           "Tailwind",
           "Shadcn/ui",
+        ]
+      },
+      {
+        title: "Next project",
+        description: "Something",
+        image: "/placeholder/no-image.jpg",
+        year: "2025",
+        url: "https://github.com/benjamintannheimer",
+        tech: [
+          "Python",
         ]
       },
     ],

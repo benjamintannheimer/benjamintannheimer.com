@@ -70,13 +70,6 @@ import { LinkIcon } from 'lucide-react';
                     </Link>
                   )}
                 </div>
-                <div class="flex flex-wrap gap-2 mt-1">
-                  {(item.usage || item.pricing) && (
-                    <span class="text-sm text-gray-500">
-                      {item.usage} {item.pricing && `(${item.pricing})`}
-                    </span>
-                  )}
-                </div>
                 {item.details && (
                   <span class="text-sm text-muted-foreground">{item.details}</span>
                 )}
