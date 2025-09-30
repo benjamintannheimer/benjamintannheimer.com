@@ -116,3 +116,23 @@ https://notchtools.com/initial-profile-picture-generator
 
 and convert to svg
 https://www.adobe.com/express/feature/image/convert/svg
+
+
+- make tags clickable (go to projects with tag) + add number for amount of ocurrences
+- change/play around with font
+- change link on hover color to the major color of the logo of the experience/education
+- remove bento box border
+- make the profile picture longer (portrait 9:16 vertical)
+
+https://font.download/font/tenorite
+poppins
+helvetica neue
+
+
+
+
+
+
+
+
+
